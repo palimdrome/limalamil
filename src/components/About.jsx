@@ -5,7 +5,7 @@ import IconsSmall from './IconsSmall';
 
 function About() {
     return ( 
-        <div class="flex flex-row justify-around bg-base-100 py-28">
+        <div class="flex flex-row justify-around bg-base-100 py-20">
             <div class="flex flex-col justify-around items-center gap-y-20 w-5/6">
                 <Heading number="01." title="Can I do the job?"></Heading>
 

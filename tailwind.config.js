@@ -6,6 +6,10 @@ export default {
       fontFamily: {
         lexend: ["Lexend", "sans-serif"],
         firacode:["Fira Code", "monospace"]
+      },
+      spacing: {
+        trio: "32%",
+        smalltrio: "30%"
       }
     },
   },
