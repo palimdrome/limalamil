@@ -5,14 +5,15 @@ function Footer() {
         <footer class="footer footer-center flex flex-col gap-y-5 pt-0 pb-10 bg-base-100 text-base-content rounded">
             <nav>
                 <div class="grid grid-flow-col gap-8">
-                    <a><i class="devicon-linkedin-plain text-3xl"></i></a>
-                    <a><i class="devicon-facebook-plain text-3xl"></i></a>
-                    <a><i class="devicon-github-original text-3xl"></i></a>
+                    {/* <a href=""><i class="fa fa-envelope text-3xl"></i></a> */}
+                    <a href="https://www.linkedin.com/in/limuelle-alamil/" target="_blank"><i class="devicon-linkedin-plain text-3xl hover:text-primary ease-in-out duration-300"></i></a>
+                    <a href="https://www.facebook.com/limalamil/" target="_blank"><i class="devicon-facebook-plain text-3xl hover:text-primary ease-in-out duration-300"></i></a>
+                    <a href="https://github.com/palimdrome" target="_blank"><i class="devicon-github-original text-3xl hover:text-primary ease-in-out duration-300"></i></a>
                 </div>
             </nav> 
             <aside>
-                <p class="font-light">Designed and built by <span class="font-bold text-primary">Limuelle Alamil</span>.</p>
-                <a href="https://v4.brittanychiang.com/" class="text-xs font-extralight">See this project's design inspo.</a>
+                <p class="font-light font-firacode">Designed and built by <span class="font-bold text-primary">Limuelle Alamil</span>.</p>
+                <a href="https://v4.brittanychiang.com/" class="text-xs font-extralight font-firacode">See this project's design inspo.</a>
             </aside>
         </footer>
      );

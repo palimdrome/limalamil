@@ -3,7 +3,7 @@ import Heading from './Heading';
 
 function Projects() {
     return ( 
-        <div class="flex flex-row justify-around bg-base-100 py-20">
+        <div class="flex flex-row justify-around bg-base-100 py-20" id="projects">
             <div class="flex flex-col justify-around items-center gap-y-20 w-5/6">
                 <Heading number="02." title="Some of my works"></Heading>
 
@@ -16,8 +16,8 @@ function Projects() {
                             <div class="flex flex-row justify-between items-center">
                                 <p class="text-sm font-light font-firacode">Website</p>
                                 <div class="flex flex-row gap-x-2">
-                                    <i class="fa fa-external-link-square text-2xl"></i>
-                                    <i class="devicon-github-plain text-2xl"></i>
+                                    <a href="https://palimdrome.github.io/windborne-gaming/"><i class="fa fa-external-link-square text-2xl hover:text-primary ease-in-out duration-300"></i></a>
+                                    <a href="https://github.com/palimdrome/windborne-gaming"><i class="devicon-github-plain text-2xl hover:text-primary ease-in-out duration-300"></i></a>
                                 </div>
                             </div>
                             <h2 class="text-xl font-bold pt-9">Windborne Gaming</h2>
@@ -29,12 +29,12 @@ function Projects() {
                             </div>
                         </div>
 
-                        <div class="flex flex-col justify-around gap-y-2 w-trio bg-[url('./assets/limicons.png')] hover:bg-[url('./assets/limicons-hover.png')] bg-cover bg-left-top bg-no-repeat ease-in-out delay-50 duration-300 rounded-xl py-5 px-7">
+                        <div class="flex flex-col justify-around gap-y-2 w-trio bg-[url('./assets/limicons.png')] hover:bg-[url('./assets/limicons-hover.png')] bg-cover bg-center bg-no-repeat ease-in-out delay-50 duration-300 rounded-xl py-5 px-7">
                             <div class="flex flex-row justify-between items-center">
                                 <p class="text-sm font-light font-firacode">Landing Page</p>
                                 <div class="flex flex-row gap-x-2">
-                                    <i class="fa fa-external-link-square text-2xl"></i>
-                                    <i class="devicon-github-plain text-2xl"></i>
+                                    <a href="https://palimdrome.github.io/limicons/"><i class="fa fa-external-link-square text-2xl hover:text-primary ease-in-out duration-300"></i></a>
+                                    <a href="https://github.com/palimdrome/limicons"><i class="devicon-github-plain text-2xl hover:text-primary ease-in-out duration-300"></i></a>
                                 </div>
                             </div>
                             <h2 class="text-xl font-bold pt-9">Limicons</h2>
@@ -50,8 +50,8 @@ function Projects() {
                             <div class="flex flex-row justify-between items-center">
                                 <p class="text-sm font-light font-firacode">Landing Page</p>
                                 <div class="flex flex-row gap-x-2">
-                                    <i class="fa fa-external-link-square text-2xl"></i>
-                                    <i class="devicon-github-plain text-2xl"></i>
+                                    <a href="https://palimdrome.github.io/sersi-landing-page/"><i class="fa fa-external-link-square text-2xl hover:text-primary ease-in-out duration-300"></i></a>
+                                    <a href="https://github.com/palimdrome/sersi-landing-page"><i class="devicon-github-plain text-2xl hover:text-primary ease-in-out duration-300"></i></a>
                                 </div>
                             </div>
                             <h2 class="text-xl font-bold pt-9">Sersi</h2>
@@ -74,8 +74,7 @@ function Projects() {
                             <div class="flex flex-row justify-between items-center">
                                 <p class="text-sm font-light font-firacode">Web App</p>
                                 <div class="flex flex-row gap-x-2">
-                                    <i class="fa fa-external-link-square text-2xl"></i>
-                                    <i class="devicon-github-plain text-2xl"></i>
+                                    <a href="https://github.com/CORA-Initiative/cora"><i class="devicon-github-plain text-2xl hover:text-primary ease-in-out duration-300"></i></a>
                                 </div>
                             </div>
                             <h2 class="text-xl font-bold pt-9">CORA</h2>
@@ -98,14 +97,13 @@ function Projects() {
                         <div class="relative flex flex-col justify-around gap-y-2 w-1/3 bg-[#292929] hover:bg-[#1A1A1A] bg-cover bg-left-top bg-no-repeat ease-in-out delay-50 duration-300 rounded-xl py-5 px-6">
                             <div class="flex flex-row justify-between">
                                 <p class="text-xs font-light font-firacode">Machine Learning</p>
-                                <div class="flex flex-row gap-x-2">
-                                    <i class="fa fa-external-link-square"></i>
-                                    <i class="devicon-github-plain"></i>
+                                <div class="flex flex-row gap-x-2 text-lg">
+                                    <a href="https://github.com/palimdrome/waste-classifier"><i class="devicon-github-plain hover:text-primary ease-in-out duration-300"></i></a>
                                 </div>
                             </div>
                             <h2 class="text-lg font-bold pt-9">Waste Classifier</h2>
                             <p class="text-xs font-light font-firacode">An ML model that classifies waste (bio/non-bio) based on images using Support Vector Machine and computer vision techniques.</p>
-                            <div class="flex flex-row gap-x-3 text-base">
+                            <div class="flex flex-row gap-x-3 text-lg">
                                 <i class="devicon-python-plain"></i>
                                 <i class="devicon-jupyter-plain-wordmark"></i>
                             </div>
@@ -114,14 +112,13 @@ function Projects() {
                         <div class="relative flex flex-col justify-around gap-y-2 w-1/3 bg-[#292929] hover:bg-[#1A1A1A] bg-cover bg-left-top bg-no-repeat ease-in-out delay-50 duration-300 rounded-xl py-5 px-6">
                             <div class="flex flex-row justify-between">
                                 <p class="text-xs font-light font-firacode">Game</p>
-                                <div class="flex flex-row gap-x-2">
-                                    <i class="fa fa-external-link-square"></i>
-                                    <i class="devicon-github-plain"></i>
+                                <div class="flex flex-row gap-x-2 text-lg">
+                                    <a href="https://github.com/Eugocode/SINCONext/blob/main/README.md"><i class="devicon-github-plain hover:text-primary ease-in-out duration-300"></i></a>
                                 </div>
                             </div>
                             <h2 class="text-lg font-bold pt-9">SincoNext</h2>
                             <p class="text-xs font-light font-firacode">A simple dodging game inspired by the University of the Philippine's grading system made using Pygame.</p>
-                            <div class="flex flex-row gap-x-3 text-base">
+                            <div class="flex flex-row gap-x-3 text-lg">
                                 <i class="devicon-python-plain"></i>
                             </div>
                         </div>
@@ -129,14 +126,13 @@ function Projects() {
                         <div class="relative flex flex-col justify-around gap-y-2 w-1/3 bg-[#292929] hover:bg-[#1A1A1A] bg-cover bg-left-top bg-no-repeat ease-in-out delay-50 duration-300 rounded-xl py-5 px-6">
                             <div class="flex flex-row justify-between">
                                 <p class="text-xs font-light font-firacode">Game</p>
-                                <div class="flex flex-row gap-x-2">
-                                    <i class="fa fa-external-link-square"></i>
-                                    <i class="devicon-github-plain"></i>
+                                <div class="flex flex-row gap-x-2 text-lg">
+                                    <a href="https://github.com/palimdrome/java-spell-casting-console-game"><i class="devicon-github-plain hover:text-primary ease-in-out duration-300"></i></a>
                                 </div>
                             </div>
                             <h2 class="text-lg font-bold pt-9">Spell Casting Game</h2>
                             <p class="text-xs font-light font-firacode">A simple turn-based game that runs in the terminal (no GUI) inspired by the Harry Potter series and Pokemon battles.</p>
-                            <div class="flex flex-row gap-x-3 text-base">
+                            <div class="flex flex-row gap-x-3 text-lg">
                                 <i class="devicon-java-plain"></i>
                             </div>
                         </div>
