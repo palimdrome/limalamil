@@ -5,7 +5,6 @@ import IconsSmall from './IconsSmall';
 
 function AboutCard(props) {
     var bg = props.bg;
-    var bg_hover = props.bg_hover;
     var type = props.type;
     var title = props.title;
     var inst = props.inst;
@@ -34,8 +33,8 @@ function About() {
                 <div class="flex flex-col gap-y-6 md:flex-row lg:flex-row justify-around self-stretch flex-wrap">
 
                     <AboutCard
-                        bg='./assets/upv-mia.jpg'
-                        bg_hover='./assets/upv-mia-hover.svg'
+                        bg='./assets/upv-mia.webp'
+                        bg_hover='./assets/upv-mia-hover.webp'
                         type='Education'
                         title='B.S. in Computer Science'
                         inst='University of the Philippines Visayas'
@@ -43,8 +42,8 @@ function About() {
                     </AboutCard>
 
                     <AboutCard
-                        bg='./assets/remote-work.jpg'
-                        bg_hover='./assets/remote-work-hover.svg'
+                        bg='./assets/remote-work.webp'
+                        bg_hover='./assets/remote-work-hover.webp'
                         type='Experience'
                         title='Fullstack Development Intern'
                         inst='DevKinetics Inc., Manila, Philippines'

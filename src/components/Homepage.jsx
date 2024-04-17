@@ -6,7 +6,7 @@ function Homepage() {
   // const bg = '/assets/hero.png'
 
   return (
-    <div id="home" class="hero min-h-screen flex flex-row justify-around bg-base-100 lg:bg-[url('/assets/hero.png')] bg-contain bg-right-bottom bg-no-repeat pt-2 lg:pt-8 md:pt-16">
+    <div id="home" class="hero min-h-screen flex flex-row justify-around bg-base-100 lg:bg-[url('/assets/hero.webp')] bg-contain bg-right-bottom bg-no-repeat pt-2 lg:pt-8 md:pt-16">
         <div class="hero-content flex flex-col justify-start lg:flex-row w-5/6">
             <div class="flex flex-col gap-y-1 lg:gap-y-3 md:gap-y-1 lg:w-3/4">
               <p class="text-sm lg:text-base md:text-base font-extralight font-firacode pb-6">Hi, my name is</p>

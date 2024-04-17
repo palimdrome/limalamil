@@ -19,7 +19,7 @@ function Projects() {
             ]
         },
         {
-            bg: './assets/limicons.png',
+            bg: './assets/limicons.webp',
             type: 'Landing Page',
             link: 'https://palimdrome.github.io/limicons/',
             githubLink: 'https://github.com/palimdrome/limicons',
@@ -32,7 +32,7 @@ function Projects() {
             ]
         },
         {
-            bg: './assets/sersi.jpg',
+            bg: './assets/sersi.webp',
             type: 'Landing Page',
             link: 'https://palimdrome.github.io/sersi-landing-pag/',
             githubLink: 'https://github.com/palimdrome/sersi-landing-page',
@@ -48,7 +48,7 @@ function Projects() {
     // Add backend projects here.
     var backendProjectsArray = [
         {
-            bg: './assets/cora.jpg',
+            bg: './assets/cora.webp',
             type: 'Web App',
             link: '',
             githubLink: 'https://github.com/CORA-Initiative/cora',
