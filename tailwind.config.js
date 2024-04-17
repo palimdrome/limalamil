@@ -10,6 +10,10 @@ export default {
       spacing: {
         trio: "32%",
         smalltrio: "30%"
+      },
+      fontSize: {
+        "5-5xl": "3.5rem",
+        "3-5xl": "2rem"
       }
     },
   },

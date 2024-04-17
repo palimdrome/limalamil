@@ -1,24 +1,39 @@
 import React from 'react';
 
 function Icons() {
+
+    // Add the icon and color here.
+    // https://devicon.dev/
+    var icons = [
+        ['devicon-html5-plain', '#E54D26'],
+        ['devicon-css3-plain', '#3D8FC6'],
+        ['devicon-javascript-plain', '#F0DB4F'],
+        ['devicon-react-original', '#61DAFB'],
+        ['devicon-nextjs-plain', '#F9F9F9'],
+        ['devicon-tailwindcss-original', '#38BDF8'],
+        ['devicon-php-plain', '#777BB3'],
+        ['devicon-mysql-original', '#00618A'],
+        ['devicon-firebase-plain', '#FFA000'],
+        ['devicon-wordpress-plain', '#3179A1'],
+        ['devicon-git-plain', '#F34F29'],
+        ['devicon-github-original', '#F9F9F9'],
+        ['devicon-figma-plain', '#FF7262'],
+        ['devicon-vscode-plain', '#3C99D4']
+    ]
+
+    // hover:text-[${icon[1]}]
+    const tools = icons.map((icon) => (
+        <div class="hover:-translate-x-0.5 hover:scale-125 ease-in-out duration-300 p-3 md:p-4 lg:p-5 group">
+            <i class={`${icon[0]} transition duration-300 ease-in-out group-hover:hidden`}></i>
+            <i class={`${icon[0]} colored transition duration-300 ease-in-out hidden group-hover:inline-flex`}></i>
+        </div>
+    ))
+
     return ( 
-        <div class="flex flex-col justify-between gap-y-8 w-7/12">
-            <h2 class="text-2xl font-bold text-center">Tools I use to develop</h2>
-            <div class="flex justify-center flex-wrap [&>div]:duration-300 [&>div]:p-5 [&_i]:transition [&_i]duration-300 [&_i]ease-in-out text-5xl">
-                <div class="hover:-translate-x-0.5 hover:scale-125 ease-in-out"><i class="devicon-html5-plain hover:text-[#E54D26]"></i></div>
-                <div class="hover:-translate-x-0.5 hover:scale-125 ease-in-out"><i class="devicon-css3-plain hover:text-[#3D8FC6]"></i></div>
-                <div class="hover:-translate-x-0.5 hover:scale-125 ease-in-out"><i class="devicon-javascript-plain hover:text-[#F0DB4F]"></i></div>
-                <div class="hover:-translate-x-0.5 hover:scale-125 ease-in-out"><i class="devicon-react-original hover:text-[#61DAFB]"></i></div>
-                <div class="hover:-translate-x-0.5 hover:scale-125 ease-in-out"><i class="devicon-nextjs-plain hover:text-[#F9F9F9]"></i></div>
-                <div class="hover:-translate-x-0.5 hover:scale-125 ease-in-out"><i class="devicon-tailwindcss-original hover:text-[#38BDF8]"></i></div>
-                <div class="hover:-translate-x-0.5 hover:scale-125 ease-in-out"><i class="devicon-php-plain hover:text-[#777BB3]"></i></div>
-                <div class="hover:-translate-x-0.5 hover:scale-125 ease-in-out"><i class="devicon-mysql-original hover:text-[#00618A]"></i></div>
-                <div class="hover:-translate-x-0.5 hover:scale-125 ease-in-out"><i class="devicon-firebase-plain hover:text-[#FFA000]"></i></div>
-                <div class="hover:-translate-x-0.5 hover:scale-125 ease-in-out"><i class="devicon-wordpress-plain hover:text-[#3179A1]"></i></div>
-                <div class="hover:-translate-x-0.5 hover:scale-125 ease-in-out"><i class="devicon-git-plain hover:text-[#F34F29]"></i></div>
-                <div class="hover:-translate-x-0.5 hover:scale-125 ease-in-out"><i class="devicon-github-original hover:text-[#F9F9F9]"></i></div>
-                <div class="hover:-translate-x-0.5 hover:scale-125 ease-in-out"><i class="devicon-figma-plain hover:text-[#FF7262]"></i></div>
-                <div class="hover:-translate-x-0.5 hover:scale-125 ease-in-out"><i class="devicon-vscode-plain hover:text-[#3C99D4]"></i></div>
+        <div class="flex flex-col justify-between gap-y-8 md:w-9/12 lg:w-7/12">
+            <h2 class="text-xl lg:text-2xl font-bold text-center">Tools I use to develop</h2>
+            <div class="flex justify-center flex-wrap text-3xl md:text-4xl lg:text-5xl">
+                {tools}
             </div>
         </div>
      );

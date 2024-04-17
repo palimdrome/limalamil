@@ -5,7 +5,7 @@ function Heading(props) {
     var title = props.title;
 
     return ( 
-        <h2 class="text-3xl font-bold self-start">
+        <h2 class="text-2xl lg:text-3xl font-bold self-start">
             <span class="text-primary font-firacode">{number}</span>
             <span> {title}</span>
         </h2>
