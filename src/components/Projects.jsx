@@ -34,7 +34,7 @@ function Projects() {
         {
             bg: './assets/sersi.webp',
             type: 'Landing Page',
-            link: 'https://palimdrome.github.io/sersi-landing-pag/',
+            link: 'https://palimdrome.github.io/sersi-landing-page/',
             githubLink: 'https://github.com/palimdrome/sersi-landing-page',
             title: 'Sersi',
             desc: 'A landing page designed for a fictional landscaping business, Sersi.',
