@@ -13,9 +13,15 @@ function Projects() {
             title: 'Windborne Gaming',
             desc: 'A website designed for an account boosting service provider for HoYoverse games.',
             tools: [
-                'devicon-react-original',
-                'devicon-vitejs-plain',
-                'devicon-tailwindcss-original'
+                ['devicon-react-original', 'React'],
+                ['devicon-vitejs-plain', 'Vite'],
+                ['devicon-tailwindcss-original', 'Tailwind CSS'],
+                ['devicon-figma-plain', 'Figma']
+            ],
+            devices: [
+                ['fa fa-mobile-phone', 'Mobile'], 
+                ['fa fa-tablet', 'Tablet'],
+                ['fa fa-desktop', 'Desktop']
             ]
         },
         {
@@ -26,9 +32,15 @@ function Projects() {
             title: 'Limicons',
             desc: 'A landing page designed for a icon designer\'s portfolio of flat icon projects.',
             tools: [
-                'devicon-html5-plain',
-                'devicon-css3-plain',
-                'devicon-javascript-plain'
+                ['devicon-html5-plain', 'HTML'],
+                ['devicon-css3-plain', 'CSS'],
+                ['devicon-javascript-plain', 'JavaScript'],
+                ['devicon-figma-plain', 'Figma']
+            ],
+            devices: [
+                ['fa fa-mobile-phone', 'Mobile'], 
+                ['fa fa-tablet', 'Tablet'],
+                ['fa fa-desktop', 'Desktop']
             ]
         },
         {
@@ -39,8 +51,14 @@ function Projects() {
             title: 'Sersi',
             desc: 'A landing page designed for a fictional landscaping business, Sersi.',
             tools: [
-                'devicon-html5-plain',
-                'devicon-css3-plain',
+                ['devicon-html5-plain', 'HTML'],
+                ['devicon-css3-plain', 'CSS'],
+                ['devicon-figma-plain', 'Figma']
+            ],
+            devices: [
+                ['fa fa-mobile-phone', 'Mobile'], 
+                ['fa fa-tablet', 'Tablet'],
+                ['fa fa-desktop', 'Desktop']
             ]
         }
     ]
@@ -55,9 +73,14 @@ function Projects() {
             title: 'CORA',
             desc: 'CORA or Computerized Oral Reading Assessment is a web app designed to assess the reading proficiency of elementary students.',
             tools: [
-                'devicon-nextjs-plain',
-                'devicon-tailwindcss-original',
-                'devicon-firebase-plain'
+                ['devicon-nextjs-plain', 'Next.js'],
+                ['devicon-tailwindcss-original', 'Tailwind CSS'],
+                ['devicon-firebase-plain', 'Firebase']
+            ],
+            devices: [
+                ['fa fa-mobile-phone', 'Mobile'], 
+                ['fa fa-tablet', 'Tablet'],
+                ['fa fa-desktop', 'Desktop']
             ]
         }
     ]
@@ -71,8 +94,8 @@ function Projects() {
             title: 'Waste Classifier',
             desc: 'An ML model that classifies waste (bio/non-bio) based on images using Support Vector Machine and computer vision techniques.',
             tools: [
-                'devicon-python-plain',
-                'devicon-jupyter-plain-wordmark'
+                ['devicon-python-plain', 'Python'],
+                ['devicon-jupyter-plain-wordmark', 'Jupyter Notebook']
             ]
         },
         {
@@ -82,7 +105,7 @@ function Projects() {
             title: 'SincoNext',
             desc: 'A simple dodging game inspired by the University of the Philippine\'s grading system made using Pygame.',
             tools: [
-                'devicon-python-plain'
+                ['devicon-python-plain', 'Python']
             ]
         },
         {
@@ -92,7 +115,7 @@ function Projects() {
             title: 'Spell Casting Game',
             desc: 'A simple turn-based game that runs in the terminal (no GUI) inspired by the Harry Potter series and Pokemon battles.',
             tools: [
-                'devicon-java-plain'
+                ['devicon-java-plain', 'Java']
             ]
         }
     ]
@@ -107,16 +130,27 @@ function Projects() {
                 <div class="flex flex-row justify-between items-center">
                     <p class="text-sm font-light font-firacode">{project.type}</p>
                     <div class="flex flex-row gap-x-2">
-                        {project.link === '' ? <div class='hidden'></div> : <a href={`${project.link}`} class="hover:-translate-x-0.5 hover:scale-125 ease-in-out duration-300" target="_blank"><i class="fa fa-external-link-square text-2xl hover:text-primary ease-in-out duration-300"></i></a>}
-                        {project.githubLink === '' ? <div class='hidden'></div> : <a href={`${project.githubLink}`} class="hover:-translate-x-0.5 hover:scale-125 ease-in-out duration-300" target="_blank"><i class="devicon-github-plain text-2xl hover:text-primary ease-in-out duration-300"></i></a>}
+                        {project.link === '' ? <div class='hidden'></div> : <a href={`${project.link}`} class="hover:-translate-x-0.5 hover:scale-125 ease-in-out duration-300" target="_blank"><div class="tooltip tooltip-bottom" data-tip="Go to site"><i class="fa fa-external-link-square text-2xl hover:text-primary ease-in-out duration-300"></i></div></a>}
+                        {project.githubLink === '' ? <div class='hidden'></div> : <a href={`${project.githubLink}`} class="hover:-translate-x-0.5 hover:scale-125 ease-in-out duration-300" target="_blank"><div class="tooltip tooltip-bottom" data-tip="Go to GitHub repo"><i class="devicon-github-plain text-2xl hover:text-primary ease-in-out duration-300"></i></div></a>}
                     </div>
                 </div>
                 <h2 class="text-xl font-bold pt-9">{project.title}</h2>
                 <p class="text-sm font-light font-firacode drop-shadow-md">{project.desc}</p>
-                <div class="flex flex-row gap-x-3 text-lg">
-                    {project.tools.map((tool) => (
-                        <i class={`${tool}`}></i>
-                    ))}
+                <div class="flex flex-row justify-between">
+                    <div class="flex flex-row gap-x-3 text-lg">
+                        {project.tools.map((tool) => (
+                            <div class="tooltip tooltip-bottom" data-tip={`${tool[1]}`}>
+                                <i class={`${tool[0]}`}></i>
+                            </div>
+                        ))}
+                    </div>
+                    <div class="flex flex-row gap-x-3 text-xl">
+                        {project.devices.map((device) => (
+                            <div class="tooltip tooltip-bottom" data-tip={`${device[1]}`}>
+                                <i class={`${device[0]}`}></i>
+                            </div>
+                        ))}
+                    </div>
                 </div>
             </div>
         )
@@ -128,15 +162,17 @@ function Projects() {
                 <div class="flex flex-row justify-between">
                     <p class="text-xs font-light font-firacode">{project.type}</p>
                     <div class="flex flex-row gap-x-2 text-lg">
-                        {project.link === '' ? <div class='hidden'></div> : <a href={`${project.link}`} class="hover:-translate-x-0.5 hover:scale-125 ease-in-out duration-300" target="_blank"><i class="fa fa-external-link-square hover:text-primary ease-in-out duration-300"></i></a>}
-                        {project.githubLink === '' ? <div class='hidden'></div> : <a href={`${project.githubLink}`} class="hover:-translate-x-0.5 hover:scale-125 ease-in-out duration-300" target="_blank"><i class="devicon-github-plain hover:text-primary ease-in-out duration-300"></i></a>}
+                        {project.link === '' ? <div class='hidden'></div> : <a href={`${project.link}`} class="hover:-translate-x-0.5 hover:scale-125 ease-in-out duration-300" target="_blank"><div class="tooltip tooltip-bottom" data-tip="Go to site"><i class="fa fa-external-link-square hover:text-primary ease-in-out duration-300 z-[99]"></i></div></a>}
+                        {project.githubLink === '' ? <div class='hidden'></div> : <a href={`${project.githubLink}`} class="hover:-translate-x-0.5 hover:scale-125 ease-in-out duration-300" target="_blank"><div class="tooltip tooltip-bottom" data-tip="GitHub repo"><i class="devicon-github-plain hover:text-primary ease-in-out duration-300 z-[99]"></i></div></a>}
                     </div>
                 </div>
                 <h2 class="text-lg font-bold pt-9">{project.title}</h2>
                 <p class="text-xs font-light font-firacode">{project.desc}</p>
                 <div class="flex flex-row gap-x-3 text-lg">
                     {project.tools.map((tool) => (
-                        <i class={`${tool}`}></i>
+                        <div class="tooltip tooltip-bottom z-99" data-tip={`${tool[1]}`}>
+                            <i class={`${tool[0]}`}></i>
+                        </div>
                     ))}
                 </div>
             </div>

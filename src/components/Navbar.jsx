@@ -61,7 +61,7 @@ function Navbar() {
                 </ul>
             </div>
             <div className="navbar-end">
-            <a href="https://drive.google.com/file/d/1uej8K_88CGzk02bqtlEC9w1-A3TJkiII/view?usp=sharing" target="_blank">
+            <a href="https://drive.google.com/file/d/10xFFplxquS1-AoszcMVFbyL9Xwr6zMSA/view?usp=sharing" target="_blank">
                 <button class="flex flex-row justify-center items-center gap-x-2 font-bold px-3 lg:px-5 md:px-5 py-2 text-sm lg:text-base md:text-base text-center text-base-100 bg-gradient-to-r from-secondary to-primary rounded-md border-2 lg:border-2 md:border-2 border-base-100 hover:border-primary hover:text-primary hover:from-transparent hover:to-transparent duration-500">
                     <i class="fa fa-download"></i>
                     Resume

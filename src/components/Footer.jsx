@@ -6,7 +6,7 @@ function Footer() {
             <nav>
                 <div class="grid grid-flow-col gap-8">
                     <a href="https://www.linkedin.com/in/limuelle-alamil/" target="_blank"><i class="devicon-linkedin-plain text-2xl lg:text-3xl hover:text-primary ease-in-out duration-300"></i></a>
-                    <a href="https://www.facebook.com/limalamil/" target="_blank"><i class="devicon-facebook-plain text-2xl lg:text-3xl hover:text-primary ease-in-out duration-300"></i></a>
+                    <a href="https://www.facebook.com/profile.php?id=100070561390068" target="_blank"><i class="devicon-facebook-plain text-2xl lg:text-3xl hover:text-primary ease-in-out duration-300"></i></a>
                     <a href="https://github.com/palimdrome" target="_blank"><i class="devicon-github-original text-2xl lg:text-3xl hover:text-primary ease-in-out duration-300"></i></a>
                 </div>
             </nav> 
