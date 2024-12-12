@@ -18,7 +18,8 @@ function Icons() {
         ['devicon-git-plain', '#F34F29'],
         ['devicon-github-original', '#F9F9F9'],
         ['devicon-figma-plain', '#FF7262'],
-        ['devicon-vscode-plain', '#3C99D4']
+        ['devicon-vscode-plain', '#3C99D4'],
+        ['devicon-laravel-original', '#f0513f']
     ]
 
     // hover:text-[${icon[1]}]

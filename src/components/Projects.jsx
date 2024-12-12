@@ -198,8 +198,8 @@ function Projects() {
 
                 {/* Frontend Projects */}
                 <div class="flex flex-col w-full gap-10">
-                    <h2 class="text-2xl font-bold text-center">Frontend</h2>
-                    <div class="flex flex-col md:flex-row lg:flex-row flex-wrap md:justify-center lg:justify-center self-stretch gap-5">
+                    <h2 class="text-2xl font-bold">Frontend</h2>
+                    <div class="flex flex-col md:flex-row lg:flex-row flex-wrap self-stretch gap-5">
 
                         {frontendProjects}
 
@@ -208,8 +208,8 @@ function Projects() {
 
                 {/* Backend Projects */}
                 <div class="flex flex-col w-full gap-10">
-                    <h2 class="text-2xl font-bold text-center">Backend</h2>
-                    <div class="flex flex-col md:flex-row lg:flex-row flex-wrap md:justify-center lg:justify-center self-stretch gap-5">
+                    <h2 class="text-2xl font-bold">Backend</h2>
+                    <div class="flex flex-col md:flex-row lg:flex-row flex-wrap self-stretch gap-5">
 
                         {backendProjects}
 
@@ -218,8 +218,8 @@ function Projects() {
 
                 {/* Other Projects */}
                 <div class="flex flex-col w-10/12 lg:w-10/12 md:w-11/12 gap-10">
-                    <h2 class="text-xl font-bold text-center">Other Noteworthy Projects</h2>
-                    <div class="flex flex-col md:flex-row lg:flex-row flex-wrap md:justify-center lg:justify-center self-stretch gap-5">
+                    <h2 class="text-xl font-bold">Other Noteworthy Projects</h2>
+                    <div class="flex flex-col md:flex-row lg:flex-row flex-wrap self-stretch gap-5">
 
                         {otherProjects}
 

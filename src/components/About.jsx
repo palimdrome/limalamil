@@ -50,6 +50,14 @@ function About() {
                         year='2022'>
                     </AboutCard>
 
+                    <AboutCard
+                        bg='./assets/bangko-kabayan.webp'
+                        type='Experience'
+                        title='Software Developer'
+                        inst='Bangko Kabayan Inc., Iloilo City, Philippines'
+                        year='2024 - Present'>
+                    </AboutCard>
+
                 </div>
 
                 <Icons></Icons>
