@@ -6,6 +6,24 @@ function Projects() {
     // Add frontend projects here.
     var frontendProjectsArray = [
         {
+            bg: './assets/idali.webp',
+            type: 'Web App',
+            link: 'https://idali.vercel.app/',
+            githubLink: 'https://github.com/palimdrome/idali',
+            title: 'IDali',
+            desc: 'A web app that instantly generates a print-ready PDF of ID photos.',
+            tools: [
+                ['devicon-react-original', 'React'],
+                ['devicon-vitejs-plain', 'Vite'],
+                ['devicon-tailwindcss-original', 'Tailwind CSS']
+            ],
+            devices: [
+                ['fa fa-mobile-phone', 'Mobile'], 
+                ['fa fa-tablet', 'Tablet'],
+                ['fa fa-desktop', 'Desktop']
+            ]
+        },
+        {
             bg: './assets/windborne.webp',
             type: 'Website',
             link: 'https://palimdrome.github.io/windborne-gaming/',
@@ -74,6 +92,25 @@ function Projects() {
             desc: 'CORA or Computerized Oral Reading Assessment is a web app designed to assess the reading proficiency of elementary students.',
             tools: [
                 ['devicon-nextjs-plain', 'Next.js'],
+                ['devicon-tailwindcss-original', 'Tailwind CSS'],
+                ['devicon-firebase-plain', 'Firebase']
+            ],
+            devices: [
+                ['fa fa-mobile-phone', 'Mobile'], 
+                ['fa fa-tablet', 'Tablet'],
+                ['fa fa-desktop', 'Desktop']
+            ]
+        },
+        {
+            bg: './assets/mobile-data-tracker.webp',
+            type: 'Web App',
+            link: 'https://test-8bddd.web.app/',
+            githubLink: 'https://github.com/RobJinon/mobile-data-tracker',
+            title: 'Mobile Data Tracker',
+            desc: 'A simple and efficient web app built with React.js, Tailwind CSS, and Firebase to help you track and input your mobile data usage.',
+            tools: [
+                ['devicon-react-original', 'React.js'],
+                ['devicon-vitejs-plain', 'Vite'],
                 ['devicon-tailwindcss-original', 'Tailwind CSS'],
                 ['devicon-firebase-plain', 'Firebase']
             ],
