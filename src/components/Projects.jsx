@@ -1,4 +1,3 @@
-import React from 'react';
 import Heading from './Heading';
 
 function Projects() {
@@ -25,7 +24,7 @@ function Projects() {
         },
         {
             bg: './assets/windborne.webp',
-            type: 'Website',
+            type: 'Landing Page',
             link: 'https://palimdrome.github.io/windborne-gaming/',
             githubLink: 'https://github.com/palimdrome/windborne-gaming',
             title: 'Windborne Gaming',
@@ -160,20 +159,18 @@ function Projects() {
     // Function to show frontend and backend projects.
     function showProjects(project) {
         return (
-            <div class="relative flex flex-col justify-between flex-wrap gap-y-2 md:w-[47.5%] lg:w-[32%] bg-cover bg-left-top bg-no-repeat ease-in-out delay-50 duration-300 rounded-xl py-5 px-7 z-[0] group">
-
-                <div class="absolute bg-cover bg-left-top bg-no-repeat w-full h-full top-0 left-0 rounded-xl opacity-40 grayscale group-hover:grayscale-0 z-[-10] ease-in-out delay-50 duration-300" style={{backgroundImage: `url(${project.bg})`}}></div>
-
-                <div class="flex flex-row justify-between items-center">
-                    <p class="text-sm font-light font-firacode">{project.type}</p>
-                    <div class="flex flex-row gap-x-2">
-                        {project.link === '' ? <div class='hidden'></div> : <a href={`${project.link}`} class="hover:-translate-x-0.5 hover:scale-125 ease-in-out duration-300" target="_blank"><div class="tooltip tooltip-bottom" data-tip="Go to site"><i class="fa fa-external-link-square text-2xl hover:text-primary ease-in-out duration-300"></i></div></a>}
-                        {project.githubLink === '' ? <div class='hidden'></div> : <a href={`${project.githubLink}`} class="hover:-translate-x-0.5 hover:scale-125 ease-in-out duration-300" target="_blank"><div class="tooltip tooltip-bottom" data-tip="Go to GitHub repo"><i class="devicon-github-plain text-2xl hover:text-primary ease-in-out duration-300"></i></div></a>}
-                    </div>
+            <div class="flex flex-col justify-between flex-wrap gap-y-2 md:w-[47.5%] lg:w-[32%] bg-base-200 ease-in-out delay-50 duration-300 rounded-sm border border-[var(--color-base-100)] py-5 px-7 z-[0] group">
+                {/* <div class="relative w-full aspect-video overflow-hidden border border-base-100">
+                    <img src={`${project.bg}`} class="w-full h-full object-cover filter grayscale"/>
+                    <div class="absolute inset-0 bg-primary mix-blend-multiply"></div>
+                </div> */}
+                <div className="w-full aspect-video overflow-hidden">
+                    <img className="object-cover opacity-60 w-full h-full" src={`${project.bg}`} alt="My profile picture" />
                 </div>
-                <h2 class="text-xl font-bold pt-9">{project.title}</h2>
-                <p class="text-sm font-light font-firacode drop-shadow-md">{project.desc}</p>
-                <div class="flex flex-row justify-between">
+                <h2 class="text-base font-bold mt-2">{project.title}</h2>
+                <p class="text-sm font-light text-primary">{project.type}</p>
+                <p class="text-sm font-light drop-shadow-md">{project.desc}</p>
+                <div class="flex flex-row justify-between mt-6">
                     <div class="flex flex-row gap-x-3 text-lg">
                         {project.tools.map((tool) => (
                             <div class="tooltip tooltip-bottom" data-tip={`${tool[1]}`}>
@@ -181,12 +178,15 @@ function Projects() {
                             </div>
                         ))}
                     </div>
-                    <div class="flex flex-row gap-x-3 text-xl">
-                        {project.devices.map((device) => (
-                            <div class="tooltip tooltip-bottom" data-tip={`${device[1]}`}>
-                                <i class={`${device[0]}`}></i>
-                            </div>
-                        ))}
+
+                    <div class="flex flex-row justify-between items-center">
+                        <div class="flex flex-row gap-x-2">
+
+                        {project.link === '' ? <div class='hidden'></div> : <a href={`${project.link}`} class="ease-in-out duration-300" target="_blank"><div class="tooltip tooltip-bottom z-99" data-tip="Go to site"><i class="fa fa-external-link text-9xl hover:text-primary font-extralight ease-in-out duration-300"></i></div></a>}
+
+                        {project.githubLink === '' ? <div class='hidden'></div> : <a href={`${project.githubLink}`} class="ease-in-out duration-300" target="_blank"><div class="tooltip tooltip-bottom z-99" data-tip="GitHub repo"><i class="devicon-github-plain text-base hover:text-primary ease-in-out duration-300"></i></div></a>}
+
+                        </div>
                     </div>
                 </div>
             </div>
@@ -195,22 +195,28 @@ function Projects() {
 
     function showOtherProjects(project) {
         return (
-            <div class="relative flex flex-col justify-around gap-y-2 md:w-[45%] lg:w-[30%] bg-[#292929] hover:bg-[#1A1A1A] bg-cover bg-left-top bg-no-repeat ease-in-out delay-50 duration-300 rounded-xl py-5 px-6">
-                <div class="flex flex-row justify-between">
-                    <p class="text-xs font-light font-firacode">{project.type}</p>
-                    <div class="flex flex-row gap-x-2 text-lg">
-                        {project.link === '' ? <div class='hidden'></div> : <a href={`${project.link}`} class="hover:-translate-x-0.5 hover:scale-125 ease-in-out duration-300" target="_blank"><div class="tooltip tooltip-bottom" data-tip="Go to site"><i class="fa fa-external-link-square hover:text-primary ease-in-out duration-300 z-[99]"></i></div></a>}
-                        {project.githubLink === '' ? <div class='hidden'></div> : <a href={`${project.githubLink}`} class="hover:-translate-x-0.5 hover:scale-125 ease-in-out duration-300" target="_blank"><div class="tooltip tooltip-bottom" data-tip="GitHub repo"><i class="devicon-github-plain hover:text-primary ease-in-out duration-300 z-[99]"></i></div></a>}
+            <div class="flex flex-col justify-around gap-y-2 md:w-[45%] lg:w-[30%] bg-base-300 hover:bg-base-200 ease-in-out delay-50 duration-300 rounded-sm border border-base-100 py-5 px-6">
+                <h2 class="text-base font-bold pt-9">{project.title}</h2>
+                <p class="text-xs font-light text-primary">{project.type}</p>
+                <p class="text-xs font-light">{project.desc}</p>
+                <div class="flex flex-row justify-between mt-6">
+                    <div class="flex flex-row gap-x-3 text-lg">
+                        {project.tools.map((tool) => (
+                            <div class="tooltip tooltip-bottom" data-tip={`${tool[1]}`}>
+                                <i class={`${tool[0]}`}></i>
+                            </div>
+                        ))}
                     </div>
-                </div>
-                <h2 class="text-lg font-bold pt-9">{project.title}</h2>
-                <p class="text-xs font-light font-firacode">{project.desc}</p>
-                <div class="flex flex-row gap-x-3 text-lg">
-                    {project.tools.map((tool) => (
-                        <div class="tooltip tooltip-bottom z-99" data-tip={`${tool[1]}`}>
-                            <i class={`${tool[0]}`}></i>
+
+                    <div class="flex flex-row justify-between">
+                        <div class="flex flex-row gap-x-2">
+
+                            {project.link === '' ? <div class='hidden'></div> : <a href={`${project.link}`} class="ease-in-out duration-300" target="_blank"><div class="tooltip tooltip-bottom z-99" data-tip="Go to site"><i class="fa fa-external-link text-9xl hover:text-primary font-extralight ease-in-out duration-300"></i></div></a>}
+
+                            {project.githubLink === '' ? <div class='hidden'></div> : <a href={`${project.githubLink}`} class="ease-in-out duration-300" target="_blank"><div class="tooltip tooltip-bottom z-99" data-tip="GitHub repo"><i class="devicon-github-plain text-base hover:text-primary ease-in-out duration-300"></i></div></a>}
+
                         </div>
-                    ))}
+                    </div>
                 </div>
             </div>
         )
@@ -229,7 +235,7 @@ function Projects() {
     ))
 
     return ( 
-        <div class="flex flex-row justify-around bg-base-100 py-20" id="projects">
+        <div class="flex flex-row justify-around py-20" id="projects">
             <div class="flex flex-col justify-around items-center gap-y-16 w-5/6">
                 <Heading number="02." title="Some of my works"></Heading>
 
@@ -254,7 +260,7 @@ function Projects() {
                 </div>
 
                 {/* Other Projects */}
-                <div class="flex flex-col w-10/12 lg:w-10/12 md:w-11/12 gap-10">
+                <div class="flex flex-col w-full gap-10">
                     <h2 class="text-xl font-bold">Other Noteworthy Projects</h2>
                     <div class="flex flex-col md:flex-row lg:flex-row flex-wrap self-stretch gap-5">
 

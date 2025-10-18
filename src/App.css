@@ -1,6 +1,51 @@
 @import "tailwindcss";
 @plugin "daisyui";
+@plugin "daisyui/theme" {
+  name: "nextpirate";
+  default: false;
+  prefersdark: true;
+  color-scheme: "light";
+  --color-base-100: oklch(27% 0.006 286.033);
+  --color-base-200: oklch(21% 0.006 285.885);
+  --color-base-300: oklch(14% 0.005 285.823);
+  --color-base-content: oklch(98% 0.003 247.858);
+  --color-primary: oklch(74% 0.16 232.661);
+  --color-primary-content: oklch(98% 0.003 247.858);
+  --color-secondary: oklch(88% 0.062 18.334);
+  --color-secondary-content: oklch(98% 0.003 247.858);
+  --color-accent: oklch(54% 0.245 262.881);
+  --color-accent-content: oklch(98% 0.003 247.858);
+  --color-neutral: oklch(14% 0.005 285.823);
+  --color-neutral-content: oklch(93% 0.032 255.585);
+  --color-info: oklch(48% 0.243 264.376);
+  --color-info-content: oklch(98% 0.003 247.858);
+  --color-success: oklch(84% 0.238 128.85);
+  --color-success-content: oklch(98% 0.003 247.858);
+  --color-warning: oklch(75% 0.183 55.934);
+  --color-warning-content: oklch(98% 0.003 247.858);
+  --color-error: oklch(71% 0.194 13.428);
+  --color-error-content: oklch(98% 0.003 247.858);
+  --radius-selector: 0.25rem;
+  --radius-field: 0.25rem;
+  --radius-box: 0.25rem;
+  --size-selector: 0.25rem;
+  --size-field: 0.25rem;
+  --border: 1px;
+  --depth: 1;
+  --noise: 1;
+}
+
 
 html {
   scroll-behavior: smooth;
+}
+
+body {
+  font-family: "JetBrains Mono", monospace !important;
+}
+
+.liquid:hover {
+  --p: 100%;
+  --t: 0.3s;
+  color: var(--color-base-300);
 }

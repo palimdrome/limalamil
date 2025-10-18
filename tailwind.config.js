@@ -4,8 +4,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        lexend: ["Lexend", "sans-serif"],
-        firacode:["Fira Code", "monospace"]
+        jetbrains: ['"JetBrains Mono"', 'monospace'],
       },
       spacing: {
         trio: "32%",
@@ -17,19 +16,5 @@ export default {
       }
     },
   },
-  daisyui: {
-    themes: [
-      {
-        sablay: {
-          "primary": "#BD7F53",
-          "secondary": "#703037",
-          "accent": "#DAD5CD",
-          "neutral": "#434446",
-          "base-100": "#0B0A0A",
-        },
-      },
-    ],
-  },
-  plugins: [require("daisyui")],
+  plugins: [],
 }
-
