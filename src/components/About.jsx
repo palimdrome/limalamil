@@ -18,7 +18,7 @@ function About() {
                             I bring <span className="text-primary">creativity</span> and attention to detail to every project, always eager to learn and improve. My work focuses on building <span className="text-primary">efficient web applications</span>, designing <span className="text-primary">user-friendly solutions</span>, and solving real-world problems through code.
                         </p>
                     </div>
-                    <div className="w-3/4 md:1/2 lg:w-1/2 aspect-square overflow-hidden">
+                    <div className="w-3/4 md:w-1/2 lg:w-1/2 aspect-square overflow-hidden">
                         <img className="object-cover w-full h-full" src="public\assets\hero.webp" alt="My profile picture" />
                     </div>
                 </div>

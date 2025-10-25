@@ -2,10 +2,8 @@ function ToolsCard(props) {
     var type = props.type
 
     var tools = props.tools
-    // console.log(tools)
 
     const displayTools = tools.map((tool) => (
-        // console.log(tool[0])
         <div class="flex flex-col justify-between items-center w-1/5 gap-y-2 pt-3">
             <i class={`${tool[0]} text-3xl lg:text-4xl`}></i>
             <span className="text-[6px] lg:text-[10px] font-extralight">{`${tool[1]}`}</span>
@@ -13,11 +11,38 @@ function ToolsCard(props) {
     ))
 
     return (
-        <div className="flex flex-col justify-between gap-y-1 lg:gap-y-2 md:w-[47.5%] lg:w-5/12 bg-base-200 rounded-sm border-[1.5px] border-[var(--color-base-100)] py-4 px-4 z-[0]">
-            <p class="text-[10px] lg:text-xs font-extralight font-firacode text-primary px-4 py-2">{type}</p>
-            <div className="flex flex-row justify-around gap-y-1 lg:gap-y-2">
-                {displayTools}
+        <div className="card flex flex-col justify-between gap-y-1 lg:gap-y-2 md:w-[47.5%] lg:w-5/12 bg-base-200 rounded-sm border-[1.5px] border-[var(--color-base-100)] py-4 px-4 z-[0]">
+            <div className="card-content relative group">
+                <div className="px-4 py-2">
+                    <p class="text-[10px] lg:text-xs font-extralight font-firacode text-primary md:text-base-content md:group-hover:text-primary lg:text-base-content lg:group-hover:text-primary ease-in-out duration-300">{type}</p>
+                </div>
+                <div className="flex flex-row justify-around gap-y-1 lg:gap-y-2">
+                    {displayTools}
+                </div>
             </div>
+
+            {/* --- Animation HTML Elements (same as before) --- */}
+            <div className="shine"></div>
+            <div className="background">
+                <div className="tiles">
+                    <div className="tile tile-1"></div>
+                    <div className="tile tile-2"></div>
+                    <div className="tile tile-3"></div>
+                    <div className="tile tile-4"></div>
+                    <div className="tile tile-5"></div>
+                    <div className="tile tile-6"></div>
+                    <div className="tile tile-7"></div>
+                    <div className="tile tile-8"></div>
+                    <div className="tile tile-9"></div>
+                    <div className="tile tile-10"></div>
+                </div>
+
+                <div className="line line-1"></div>
+                <div className="line line-2"></div>
+                <div className="line line-3"></div>
+            </div>
+            {/* ------------------------------------------------- */}
+
         </div>
     )
 }

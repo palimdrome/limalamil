@@ -1,4 +1,5 @@
 import Heading from './Heading';
+import Button from "./Button";
 
 function Projects() {
 
@@ -90,7 +91,7 @@ function Projects() {
             title: 'CORA',
             desc: 'CORA or Computerized Oral Reading Assessment is a web app designed to assess the reading proficiency of elementary students.',
             tools: [
-                ['devicon-nextjs-plain', 'Next.js'],
+                ['devicon-nextjs-plain', 'Next'],
                 ['devicon-tailwindcss-original', 'Tailwind CSS'],
                 ['devicon-firebase-plain', 'Firebase']
             ],
@@ -108,7 +109,7 @@ function Projects() {
             title: 'Mobile Data Tracker',
             desc: 'A simple and efficient web app built with React.js, Tailwind CSS, and Firebase to help you track and input your mobile data usage.',
             tools: [
-                ['devicon-react-original', 'React.js'],
+                ['devicon-react-original', 'React'],
                 ['devicon-vitejs-plain', 'Vite'],
                 ['devicon-tailwindcss-original', 'Tailwind CSS'],
                 ['devicon-firebase-plain', 'Firebase']
@@ -159,36 +160,67 @@ function Projects() {
     // Function to show frontend and backend projects.
     function showProjects(project) {
         return (
-            <div class="flex flex-col justify-between flex-wrap gap-y-2 md:w-[47.5%] lg:w-[32%] bg-base-200 ease-in-out delay-50 duration-300 rounded-sm border border-[var(--color-base-100)] py-5 px-7 z-[0] group">
-                {/* <div class="relative w-full aspect-video overflow-hidden border border-base-100">
-                    <img src={`${project.bg}`} class="w-full h-full object-cover filter grayscale"/>
-                    <div class="absolute inset-0 bg-primary mix-blend-multiply"></div>
-                </div> */}
-                <div className="w-full aspect-video overflow-hidden">
-                    <img className="object-cover opacity-60 w-full h-full" src={`${project.bg}`} alt="My profile picture" />
-                </div>
-                <h2 class="text-base font-bold mt-2">{project.title}</h2>
-                <p class="text-sm font-light text-primary">{project.type}</p>
-                <p class="text-sm font-light drop-shadow-md">{project.desc}</p>
-                <div class="flex flex-row justify-between mt-6">
-                    <div class="flex flex-row gap-x-3 text-lg">
-                        {project.tools.map((tool) => (
-                            <div class="tooltip tooltip-bottom" data-tip={`${tool[1]}`}>
-                                <i class={`${tool[0]}`}></i>
+            <div className="card flex flex-col justify-between flex-wrap gap-y-2 md:w-[47.5%] lg:w-[32%] bg-base-200 ease-in-out delay-50 duration-300 rounded-sm border border-[var(--color-base-100)] py-5 px-7 z-[0] group">
+                <div className="card-content z-20 relative">
+                    <div className="relative w-full aspect-video group/image">
+                        <img className="object-cover w-full h-full transition duration-500 ease-in-out group-hover/image:blur-sm group-hover/image:scale-105" src={`${project.bg}`} alt="Project background" />
+                        {project.link !== "" && (
+                            <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover/image:opacity-100 transition-opacity duration-500 ease-in-out">
+                                <a
+                                    href={`${project.link}`}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="btn bg-transparent border border-base-200 text-base-200 hover:scale-105 transition transform"
+                                    onClick={(e) => e.stopPropagation()} // Prevents parent click events in case I have one
+                                >
+                                    Go to Site 
+                                </a>
                             </div>
-                        ))}
+                        )}
                     </div>
+                    <h2 className="text-base font-bold mt-2">{project.title}</h2>
+                    <p className="text-sm font-light text-primary">{project.type}</p>
+                    <p className="text-sm font-light drop-shadow-md">{project.desc}</p>
+                    <div className="flex flex-row justify-between mt-6">
+                        <div className="flex flex-row gap-x-3 text-lg">
+                            {project.tools.map((tool, index) => (
+                                <div key={index} className="tooltip tooltip-top" data-tip={`${tool[1]}`}>
+                                    <i className={`${tool[0]}`}></i>
+                                </div>
+                            ))}
+                        </div>
 
-                    <div class="flex flex-row justify-between items-center">
-                        <div class="flex flex-row gap-x-2">
-
-                        {project.link === '' ? <div class='hidden'></div> : <a href={`${project.link}`} class="ease-in-out duration-300" target="_blank"><div class="tooltip tooltip-bottom z-99" data-tip="Go to site"><i class="fa fa-external-link text-9xl hover:text-primary font-extralight ease-in-out duration-300"></i></div></a>}
-
-                        {project.githubLink === '' ? <div class='hidden'></div> : <a href={`${project.githubLink}`} class="ease-in-out duration-300" target="_blank"><div class="tooltip tooltip-bottom z-99" data-tip="GitHub repo"><i class="devicon-github-plain text-base hover:text-primary ease-in-out duration-300"></i></div></a>}
-
+                        <div className="flex flex-row justify-between items-center">
+                            <div className="flex flex-row gap-x-2">
+                                {project.link === '' ? <div className='hidden'></div> : <a href={`${project.link}`} className="ease-in-out duration-300" target="_blank"><div className="tooltip tooltip-top" data-tip="Site"><i className="fa fa-external-link text-9xl hover:text-primary font-extralight ease-in-out duration-300"></i></div></a>}
+                                {project.githubLink === '' ? <div className='hidden'></div> : <a href={`${project.githubLink}`} className="ease-in-out duration-300" target="_blank"><div className="tooltip tooltip-top" data-tip="Repo"><i className="devicon-github-plain text-base hover:text-primary ease-in-out duration-300"></i></div></a>}
+                            </div>
                         </div>
                     </div>
                 </div>
+
+                {/* --- Animation HTML Elements --- */}
+                <div className="shine"></div>
+                <div className="background">
+                    <div className="tiles">
+                        <div className="tile tile-1"></div>
+                        <div className="tile tile-2"></div>
+                        <div className="tile tile-3"></div>
+                        <div className="tile tile-4"></div>
+                        <div className="tile tile-5"></div>
+                        <div className="tile tile-6"></div>
+                        <div className="tile tile-7"></div>
+                        <div className="tile tile-8"></div>
+                        <div className="tile tile-9"></div>
+                        <div className="tile tile-10"></div>
+                    </div>
+
+                    <div className="line line-1"></div>
+                    <div className="line line-2"></div>
+                    <div className="line line-3"></div>
+                </div>
+                {/* ---------------------------------- */}
+
             </div>
         )
     }
@@ -202,7 +234,7 @@ function Projects() {
                 <div class="flex flex-row justify-between mt-6">
                     <div class="flex flex-row gap-x-3 text-lg">
                         {project.tools.map((tool) => (
-                            <div class="tooltip tooltip-bottom" data-tip={`${tool[1]}`}>
+                            <div class="tooltip tooltip-top" data-tip={`${tool[1]}`}>
                                 <i class={`${tool[0]}`}></i>
                             </div>
                         ))}
@@ -211,9 +243,9 @@ function Projects() {
                     <div class="flex flex-row justify-between">
                         <div class="flex flex-row gap-x-2">
 
-                            {project.link === '' ? <div class='hidden'></div> : <a href={`${project.link}`} class="ease-in-out duration-300" target="_blank"><div class="tooltip tooltip-bottom z-99" data-tip="Go to site"><i class="fa fa-external-link text-9xl hover:text-primary font-extralight ease-in-out duration-300"></i></div></a>}
+                            {project.link === '' ? <div class='hidden'></div> : <a href={`${project.link}`} class="ease-in-out duration-300" target="_blank"><div class="tooltip tooltip-top z-99" data-tip="Go to site"><i class="fa fa-external-link text-9xl hover:text-primary font-extralight ease-in-out duration-300"></i></div></a>}
 
-                            {project.githubLink === '' ? <div class='hidden'></div> : <a href={`${project.githubLink}`} class="ease-in-out duration-300" target="_blank"><div class="tooltip tooltip-bottom z-99" data-tip="GitHub repo"><i class="devicon-github-plain text-base hover:text-primary ease-in-out duration-300"></i></div></a>}
+                            {project.githubLink === '' ? <div class='hidden'></div> : <a href={`${project.githubLink}`} class="ease-in-out duration-300" target="_blank"><div class="tooltip tooltip-top z-99" data-tip="GitHub repo"><i class="devicon-github-plain text-base hover:text-primary ease-in-out duration-300"></i></div></a>}
 
                         </div>
                     </div>

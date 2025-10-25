@@ -1,10 +1,6 @@
 import { FaFacebookF, FaLinkedinIn, FaGithub } from "react-icons/fa";
 
 function Socials(props) {
-
-    var hoverColor = props.hoverColor;
-    var defaultColor = props.defaultColor;
-
     return(
         <div className="flex flex-row justify-between items-center w-full gap-3 md:gap-2 lg:gap-2 text-primary">
             <a href="https://www.linkedin.com/in/limuelle-alamil/" target="_blank">

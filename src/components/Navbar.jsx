@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import Button from "./Button";
  
 function Navbar() {
     const [show, setShow] = useState(true);
@@ -74,12 +75,45 @@ function Navbar() {
             </div>
             <div className="drawer-side z-[99]">
                 <label htmlFor="my-drawer" aria-label="close sidebar" className="drawer-overlay"></label>
-                <ul className="menu bg-base-200 min-h-full w-80 p-4">
+                <ul className="menu flex flex-col justify-center items-center gap-y-5 bg-base-200 min-h-full w-80 p-4">
                     {/* Sidebar content here */}
-                    <li><a href="#about"><span class="text-base"><span class="text-primary text-xs">01.</span> About</span></a></li>
-                    <li><a href="#experience"><span class="text-base"><span class="text-primary text-xs">02.</span> Experience</span></a></li>
-                    <li><a href="#projects"><span class="text-base"><span class="text-primary text-xs">03.</span> Projects</span></a></li>
-                    <li><a href="#contact"><span class="text-base"><span class="text-primary text-xs">04.</span> Contact</span></a></li>
+                    <li className="mb-8">
+                        <a href="#home" className="text-base lg:text-lg md:text-lg">
+                             <span>lim
+                             <span class="text-primary">.</span>
+                             ala
+                             <span class="text-primary">.</span>
+                             mil</span>
+                         </a>
+                    </li>
+                    <li>
+                        <a href="#about" className="flex flex-col justify-center items-center">
+                            <span class="text-primary text-xs">01.</span>
+                            <span class="text-base">About</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#experience" className="flex flex-col justify-center items-center">
+                            <span class="text-primary text-xs">02.</span>
+                            <span class="text-base">Experience</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#projects" className="flex flex-col justify-center items-center">
+                            <span class="text-primary text-xs">03.</span>
+                            <span class="text-base">Projects</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#contact" className="flex flex-col justify-center items-center">
+                            <span class="text-primary text-xs">04.</span>
+                            <span class="text-base">Contact</span>
+                        </a>
+                    </li>
+
+                    <li className="mt-8">
+                        <Button url="https://drive.google.com/file/d/10xFFplxquS1-AoszcMVFbyL9Xwr6zMSA/view?usp=sharing" target="_blank" action="Download my CV"></Button>
+                    </li>
                 </ul>
             </div>
         </div>

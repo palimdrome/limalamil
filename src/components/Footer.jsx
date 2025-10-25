@@ -2,8 +2,8 @@ import Socials from "./Socials"
 
 function Footer() {
     return ( 
-        <footer class="footer footer-center flex flex-col gap-y-5 pt-0 pb-10 text-base-content rounded">
-            <nav className="w-1/7">
+        <footer class="footer footer-center flex flex-col gap-y-5 pb-10 text-base-content rounded">
+            <nav className="flex flex-col justify-center items-center md:w-1/7 lg:w-1/7">
                 <Socials></Socials>
             </nav> 
             <aside>
