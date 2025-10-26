@@ -20,7 +20,7 @@ function Socials(props) {
                 </div>
             </a>
 
-            <a href="https://www.facebook.com/profile.php?id=100070561390068" target="_blank">
+            <a href="https://www.facebook.com/limalamil" target="_blank">
                 <div class="text-base hover:text-base-300 ease-in-out duration-300 border-2 border-primary hover:bg-primary rounded-full p-2 lg:p-3">
                     <FaFacebookF />
                 </div>
