@@ -10,15 +10,22 @@ import About from './components/About';
 import SideBarSocials from "./components/SideBarSocials";
 import SideBarEmail from "./components/SideBarEmail";
 import ScrollAnimationWrapper from "./wrappers/ScrollAnimationWrapper";
+import LoadingScreen from "./components/LoadingScreen";
 
 function App() {
   const [showFixedContent, setShowFixedContent] = useState(false);
   const [shouldRender, setShouldRender] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   
   // Must match the duration-700 class in SidebarSocials.jsx
-  const TRANSITION_DURATION = 700; 
+  const TRANSITION_DURATION = 700;
+  const APP_LOAD_TIME = 1500;
 
   useEffect(() => {
+    const loadTimer = setTimeout(() => {
+      setIsLoading(false); // Trigger the reveal animation
+    }, APP_LOAD_TIME);
+
     const scrollThreshold = window.innerHeight * 0.9; 
     let timeoutId;
 
@@ -26,18 +33,13 @@ function App() {
       const shouldBeVisible = window.scrollY > scrollThreshold;
 
       if (shouldBeVisible) {
-        // --- ENTERING: Triggers the smooth mount/entry animation ---
         clearTimeout(timeoutId);
-        // 1. Immediately render component
         setShouldRender(true); 
-        // 2. Immediately tell component to SHOW (triggers the transition end state)
         setShowFixedContent(true); 
       } else if (!shouldBeVisible && showFixedContent) {
-        // --- EXITING: Triggers the smooth exit animation ---
-        // 1. Tell component to HIDE (triggers the smooth exit transition in CSS)
         setShowFixedContent(false); 
         
-        // 2. Unmount component *after* CSS transition ends
+        // Unmount component *after* CSS transition ends
         timeoutId = setTimeout(() => {
             setShouldRender(false);
         }, TRANSITION_DURATION);
@@ -46,17 +48,19 @@ function App() {
 
     window.addEventListener('scroll', handleScroll);
     
-    // Cleanup
     return () => {
       window.removeEventListener('scroll', handleScroll);
       clearTimeout(timeoutId); 
+      clearTimeout(loadTimer);
     };
   }, [showFixedContent]);
 
   return (
     <div className='max-w-screen min-h-screen text-[var(--color-primary-content)] bg-[var(--color-base-300)] font-jetbrains'>
+      
+      <LoadingScreen isLoading={isLoading} />
       <Navbar></Navbar>
-      <Homepage></Homepage>
+      <Homepage isLoading={isLoading}></Homepage>
       
       {shouldRender && (
           <>

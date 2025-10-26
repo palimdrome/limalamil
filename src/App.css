@@ -611,3 +611,45 @@ body {
 }
 /* END: Custom CSS for Code Editor Illustration --- */
 
+
+/* --- Additional fade in transition for homepage contents --- */
+.guaranteed-transition {
+    /* Apply transition with highest priority to defeat stylesheet conflicts */
+    transition: all 1000ms ease-out !important;
+}
+/* --- Additional fade in transition for homepage contents --- */
+
+/* START: Loading Reveal Animation */
+/* Keyframes for the slide-down animation */
+@keyframes slideDownAndFadeOut {
+  0% {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh); /* Move completely off-screen downwards */
+    opacity: 1;
+  }
+}
+
+/* Base styling for each rectangle */
+.loading-rectangle {
+  width: calc(100% / 6); /* Divide width equally among 6 rectangles */
+  height: 100%;
+  background-color: var(--color-base-200);
+  opacity: 1; /* Start fully visible */
+
+  /* Default state (before animation starts) */
+  transform: translateY(0%);
+
+  /* Apply animation ONLY when parent has 'animate-out' class */
+  .animate-out & {
+    animation-name: slideDownAndFadeOut;
+    animation-duration: var(--animation-duration);
+    animation-delay: var(--animation-delay);
+    animation-timing-function: cubic-bezier(0.7, 0, 0.3, 1); /* Ease-in-out curve */
+    animation-fill-mode: forwards; /* Keep the final state (invisible, off-screen) */
+  }
+  /* END: Loading Reveal Animation */
+
+}

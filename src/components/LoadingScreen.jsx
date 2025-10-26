@@ -1,51 +1,61 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
-// NOTE: You must update the Homepage.jsx tile generation to use 24 tiles total
-// for this code to work without massive manual copy-pasting.
+// Configuration
+const NUM_RECTANGLES = 6;
+const ANIMATION_BASE_DURATION_MS = 800; // Duration of one rectangle sliding
+const ANIMATION_STAGGER_DELAY_MS = 100; // Delay between each rectangle
 
-// Using the 6x4 (24 tiles) structure from the last dynamic attempt
-const numTiles = 24; 
-const delayGroups = [-2, -4, -6]; 
+function LoadingScreen({ isLoading }) {
+    // State to manage whether the component should be removed from the DOM
+    const [shouldRender, setShouldRender] = useState(true);
 
-// Generate 24 tiles dynamically
-const tiles = Array.from({ length: numTiles }).map((_, index) => {
-    // Calculate randomized/staggered delay
-    const delay = delayGroups[index % 3]; 
+    useEffect(() => {
+        // If isLoading becomes false (app is loaded), start the unmount timer
+        if (!isLoading) {
+            // Calculate total time for the last rectangle to finish animating
+            const totalAnimationTime = ANIMATION_BASE_DURATION_MS + (NUM_RECTANGLES - 1) * ANIMATION_STAGGER_DELAY_MS;
+            
+            // Set timeout to remove the component after the animation completes
+            const timer = setTimeout(() => {
+                setShouldRender(false);
+            }, totalAnimationTime);
+
+            // Cleanup timeout if isLoading changes back or component unmounts
+            return () => clearTimeout(timer);
+        }
+    }, [isLoading]);
+
+    // Only render the component if shouldRender is true
+    if (!shouldRender) {
+        return null;
+    }
+
+    // Create the rectangle elements dynamically
+    const rectangles = Array.from({ length: NUM_RECTANGLES }).map((_, index) => {
+        const delay = index * ANIMATION_STAGGER_DELAY_MS;
+        return (
+            <div
+                key={index}
+                className="loading-rectangle"
+                // Pass animation properties via inline style variables
+                style={{
+                    '--animation-duration': `${ANIMATION_BASE_DURATION_MS}ms`,
+                    '--animation-delay': `${delay}ms`
+                }}
+            ></div>
+        );
+    });
 
     return (
-        <div 
-            key={index}
-            className={`tile tile-${index + 1}`} 
-            style={{
-                // Pass variables for animation
-                '--animation-delay': `${delay}s`,
-                '--rand-duration': `${Math.random() * 0.5 + 1.5}s` // Random duration 1.5s to 2s
-            }}
-        ></div>
-    );
-});
-
-/**
- * Full-screen component that plays the reveal animation and hides itself.
- * Uses the CSS tile structure but animates opacity/transform out.
- */
-function LoadingScreen({ isLoaded }) {
-
-    return (
-        <div 
+        <div
             className={`
-                fixed inset-0 w-full h-full z-[1000] 
-                bg-base-300 /* Use your darkest background color */
-                transition-opacity duration-1000 ease-out 
-                ${isLoaded ? 'opacity-0 pointer-events-none' : 'opacity-100'} 
+                fixed inset-0 w-full h-full z-[1000]
+                flex flex-row /* Arrange rectangles horizontally */
+                pointer-events-none /* Allow clicks through initially */
+                ${!isLoading ? 'animate-out' : ''} /* Class to trigger animation */
             `}
         >
-            {/* The tile background structure */}
-            <div className="background">
-                <div className="tiles loading-tiles">
-                    {tiles}
-                </div>
-            </div>
+            {rectangles}
         </div>
     );
 }
