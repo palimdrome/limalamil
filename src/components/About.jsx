@@ -6,7 +6,7 @@ function About() {
             <div class="flex flex-col justify-around items-center gap-y-14 md:gap-y-16 lg:gap-y-20 w-5/6">
                 <Heading number="01." title="About me"></Heading>
 
-                <div className="flex flex-col md:flex-row lg:flex-row gap-6 md:gap-8 lg:gap-20 items-center md:px-12 lg:px-12">
+                <div className="flex flex-col lg:flex-row gap-6 md:gap-8 lg:gap-20 items-center md:px-12 lg:px-12">
                     <div className="w-full">
                         <p className="text-sm lg:text-base md:text-base text-base-content">
                             Hi, I’m <span className="text-primary">Limuelle Alamil</span> from Iloilo City, Philippines. I finished my bachelor’s degree in Computer Science at the <span className="text-primary">University of the Philippines Visayas</span> in 2023.
