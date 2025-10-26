@@ -19,7 +19,7 @@ function About() {
                         </p>
                     </div>
                     <div className="w-3/4 md:w-1/2 lg:w-1/2 aspect-square overflow-hidden">
-                        <img className="object-cover w-full h-full" src="public\assets\hero.webp" alt="My profile picture" />
+                        <img className="object-cover w-full h-full" src="/assets/hero.webp" alt="My profile picture" />
                     </div>
                 </div>
 
