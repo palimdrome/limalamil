@@ -5,7 +5,7 @@ function ToolsCard(props) {
 
     const displayTools = tools.map((tool) => (
         <div class="flex flex-col justify-between items-center w-1/5 gap-y-2 pt-3">
-            <i class={`${tool[0]} text-3xl lg:text-4xl`}></i>
+            <i class={`${tool[0]} text-3xl lg:text-4xl hover:text-primary ease-in-out duration-300`}></i>
             <span className="text-[6px] lg:text-[10px] font-extralight">{`${tool[1]}`}</span>
         </div>
     ))

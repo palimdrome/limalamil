@@ -1,16 +1,13 @@
 import Heading from './Heading';
 import Skills from './Skills';
-import IconsSmall from './IconsSmall';
 import { LiaUniversitySolid, LiaBriefcaseSolid } from "react-icons/lia";
 
 function ExperienceCard(props) {
-    const { type, title, inst, year } = props; // Destructuring props for cleaner code
+    const { type, title, inst, year } = props;
 
     return (
-        // Added 'card' class to the main container
         <div className="card flex flex-col justify-between gap-y-1 lg:gap-y-2 md:w-[47.5%] lg:w-5/12 bg-base-200 rounded-sm border-[1.5px] border-[var(--color-base-100)] py-8 px-7 z-[0]">
             
-            {/* Wrapped original content in 'card-content' */}
             <div className="card-content z-20 relative group">
                 <p className="flex flex-row justify-start items-center gap-1 text-[10px] lg:text-xs font-extralight text-primary md:text-base-content md:group-hover:text-primary lg:text-base-content lg:group-hover:text-primary ease-in-out duration-300">
                     <span id="type-icon" className="text-base">

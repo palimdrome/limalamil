@@ -12,7 +12,7 @@ function Contact() {
 
                 <div class="flex flex-col justify-center items-center gap-y-6">
                     <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-center">Let's get in touch.</h1>
-                    <p class="w-10/12 md:w-8/12 lg:w-5/12 text-center text-sm md:text-base lg:text-base font-extralight">I am actively looking for a job opportunity where my skills align. If you are looking for a frontend developer, feel free to send me an email.</p>
+                    <p class="w-10/12 md:w-8/12 lg:w-8/12 text-center text-sm md:text-base lg:text-base font-extralight">I am actively looking for a job opportunity where my skills align. If you are looking for a frontend developer, feel free to send me an email.</p>
                 </div>
 
                 <div className="flex flex-col md:flex-row lg:flex-row lg:w-1/4 gap-4 justify-center items-center">

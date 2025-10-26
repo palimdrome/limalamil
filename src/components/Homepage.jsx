@@ -4,17 +4,11 @@ import CodeIllustration from "./CodeIllustration";
 
 function Homepage() {
   return (
-    // OUTSIDE DIV: This is the 'card' container, spanning the full screen.
-    // The animation will cover the entire area of this element.
     <div 
       id="home" 
       className="card card-homepage hero min-h-screen flex flex-row justify-around bg-contain bg-right-bottom bg-no-repeat pt-2 lg:pt-8 md:pt-16 relative overflow-hidden" 
     >
-        
-        {/* All content wrapped in 'card-content' to float above the animation layers. */}
         <div className="card-content hero-content flex flex-col justify-start lg:flex-row w-5/6 relative z-20"> 
-            
-            {/* 1. Main Text Content (Left/Top) */}
             <div className="flex flex-col gap-y-1 lg:gap-y-3 md:gap-y-1 lg:w-3/4">
                 <p className="text-sm pl-1 text-base-content font-extralight">Hi, my name is</p>
                 <h1 className="text-[3.5rem] lg:text-7xl md:text-6xl leading-none font-bold text-base-content">Limuelle Alamil.</h1>
@@ -26,13 +20,12 @@ function Homepage() {
                         <Button url="https://drive.google.com/file/d/10xFFplxquS1-AoszcMVFbyL9Xwr6zMSA/view?usp=sharing" target="_blank" action="Download my CV"></Button>
                     </div>
                     
-                    <nav className="w-1/5">
+                    <nav className="w-2/7">
                         <Socials></Socials>
                     </nav>
                 </div>
             </div>
 
-            {/* 2. Code Illustration (Right/Bottom) */}
             <div className="
                 hidden lg:block lg:w-1/4 
                 relative
@@ -44,9 +37,6 @@ function Homepage() {
             
         </div>
         
-        {/* --- TILE ANIMATION HTML ELEMENTS --- 
-            These must be direct children of the 'card' container.
-        */}
         <div className="shine"></div>
         <div className="background">
             <div className="tiles">
@@ -78,6 +68,8 @@ function Homepage() {
             <div className="line line-1"></div>
             <div className="line line-2"></div>
             <div className="line line-3"></div>
+            <div className="line line-4"></div>
+            <div className="line line-5"></div>
         </div>
         {/* ---------------------------------- */}
 

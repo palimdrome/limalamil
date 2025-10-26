@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
+import CopyToClipboardWrapper from "../wrappers/CopyToClipboardWrapper";
 
 const SidebarEmail = ({ isVisible }) => {
-    // CRUCIAL: Local state logic for smooth entry animation (same as SidebarSocials)
+    // Local state logic for smooth entry animation (same as SidebarSocials)
     const [initialRender, setInitialRender] = useState(true);
 
     useEffect(() => {
@@ -24,7 +25,6 @@ const SidebarEmail = ({ isVisible }) => {
         currentClasses = 'opacity-100 translate-y-0';
     }
     
-    // Replace with your actual email address
     const emailAddress = "ldc.alamil@gmail.com"; 
 
     return (
@@ -59,7 +59,9 @@ const SidebarEmail = ({ isVisible }) => {
                     my-18 mx-0
                 "
             >
-                {emailAddress}
+                <CopyToClipboardWrapper textToCopy={`${emailAddress}`} tooltipMessage="Email copied :)">
+                    {emailAddress}
+                </CopyToClipboardWrapper>
             </a>
 
             {/* The vertical line underneath the email address */}

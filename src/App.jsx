@@ -15,11 +15,10 @@ function App() {
   const [showFixedContent, setShowFixedContent] = useState(false);
   const [shouldRender, setShouldRender] = useState(false);
   
-  // CRITICAL: Must match the duration-700 class in SidebarSocials.jsx
+  // Must match the duration-700 class in SidebarSocials.jsx
   const TRANSITION_DURATION = 700; 
 
   useEffect(() => {
-    // You may need to adjust this value (e.g., window.innerHeight * 1.0)
     const scrollThreshold = window.innerHeight * 0.9; 
     let timeoutId;
 
@@ -60,10 +59,9 @@ function App() {
       <Homepage></Homepage>
       
       {shouldRender && (
-          // Place both sidebars inside this conditional render block
           <>
             <SideBarSocials isVisible={showFixedContent} />
-            <SideBarEmail isVisible={showFixedContent} /> {/* <--- NEW COMPONENT PLACEMENT */}
+            <SideBarEmail isVisible={showFixedContent} />
           </>
       )}
 

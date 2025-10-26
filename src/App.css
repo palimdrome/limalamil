@@ -255,11 +255,6 @@ body {
     }
 }
 
-/* ==================================================================
-START: Homepage Override for a Denser 6x4 Grid (24 tiles)
-==================================================================
-*/
-
 /* --- Define the new 6x4 grid (16.66% width, 25% height) --- */
 .card-homepage .background .tiles .tile {
     width: 16.66%;
@@ -321,26 +316,23 @@ START: Homepage Override for a Denser 6x4 Grid (24 tiles)
 .card-homepage .background .tiles .tile-19,
 .card-homepage .background .tiles .tile-21 { animation-delay: -6s; }
 
-/* --- New line positions for the 6x4 grid --- */
-/* (These correspond to the end of Row 1 / Col 1) */
 .card-homepage .background .line-1:before { top: 25%; }
 .card-homepage .background .line-1:after { left: 16.66%; }
 
-/* (These correspond to the end of Row 2 / Col 3) */
 .card-homepage .background .line-2:before { top: 50%; }
-.card-homepage .background .line-2:after { left: 50%; } /* 49.98% rounded to 50% */
+.card-homepage .background .line-2:after { left: 33.32%; }
 
-/* (These correspond to the end of Row 3 / Col 5) */
 .card-homepage .background .line-3:before { top: 75%; }
-.card-homepage .background .line-3:after { right: 33.32%; } /* 100% - 66.64% */
+.card-homepage .background .line-3:after { right: 50%; }
+
+.card-homepage .background .line-4:before { top: 75%; }
+.card-homepage .background .line-4:after { left: 66.66%; }
+
+.card-homepage .background .line-5:before { top: 75%; }
+.card-homepage .background .line-5:after { left: 83.32%; }
 
 .card-homepage {
-    /* We don't want the hover box-shadow, but we also don't want the default
-       transition, so we set it to 'none' to prevent flickering. */
     transition: none;
-    /* You can apply a non-hover box-shadow if you like, or leave this
-       rule out entirely if you don't want a default shadow. */
-    /* box-shadow: 0 0 0 1px var(--card-hover-border-color); */
 }
 
 /* Make shine, tiles, and lines visible by default */
@@ -374,7 +366,6 @@ START: Homepage Override for a Denser 6x4 Grid (24 tiles)
     transform: scaleY(1);
 }
 
-/* Set the *entry* delays (the hover state) to be the default */
 .card-homepage .background .line-1:before,
 .card-homepage .background .line-1:after { transition-delay: .0s; }
 
@@ -383,7 +374,6 @@ START: Homepage Override for a Denser 6x4 Grid (24 tiles)
 
 .card-homepage .background .line-3:before,
 .card-homepage .background .line-3:after { transition-delay: .3s; }
-
 
 /* END: Animation for tile hover effect */
 
@@ -503,91 +493,121 @@ START: Homepage Override for a Denser 6x4 Grid (24 tiles)
     .c-b-2 { color: var(--color-base-200) } /* neutral black */
     .c-b-3 { color: var(--color-base-300) } /* darkest black */
   }
+  
+  /* --- Base Typing Styles for ALL Code Blocks --- */
+  .code-content code p {
+    width: 0%;
+    margin: 0;
+    border-right: .15em solid transparent;
+    overflow: hidden;
+    display: inline-block; /* Changed from block to allow natural wrapping if needed */
+    white-space: nowrap;
+    animation-fill-mode: forwards;
+  }
 
-  /* Typing Animation Logic (Code-CSS) */
+  /* Typing Animation Logic (Code-CSS) - Kept original */
   &.code-css {
     .code-content code {
-      p {
-          width: 0%;
-          margin: 0;
-          border-right: .15em solid transparent;
-          overflow: hidden;
-          display: inline-block;
-          white-space: nowrap;
-          animation-fill-mode: forwards;
-      }
-      
-      .line-1, .line-3, .line-4 {
-          animation-duration: 1s;
-          animation-timing-function: steps(10, end);
-      }
-      
       .line-1 {
-          animation: typing-1 0.7s 0s steps(10, end) forwards, cursor 0.7s 0s 1;
+        animation: typing-css-1 0.7s 0s steps(15, end) forwards, cursor 0.7s 0s 1;
       }
       .line-2 {
-          margin-left: 2rem;
-          animation: typing-2 2s 1s steps(30, end) forwards, cursor 0.7s 1s 3;
+        margin-left: 1rem; /* Adjusted indent */
+        animation: typing-css-2 1s 1s steps(10, end) forwards, cursor 0.7s 1s 2;
       }
       .line-3 {
-          margin-left: 2rem;
-          animation: typing-3 0.7s 3s steps(10, end) forwards, cursor 0.7s 3s 1;
+        margin-left: 1rem; /* Adjusted indent */
+        animation: typing-css-3 0.7s 2s steps(10, end) forwards, cursor 0.7s 2s 1;
       }
       .line-4 {
-          margin-left: 2rem;
-          animation: typing-4 0.7s 4s steps(10, end) forwards, cursor 0.7s 4s 1;
+        margin-left: 1rem; /* Adjusted indent */
+        animation: typing-css-4 0.7s 3s steps(6, end) forwards, cursor 0.7s 3s 1;
       }
       .line-5 {
-          margin-left: 3rem;
-          animation: typing-5 2s 5s steps(30, end) forwards, cursor 0.7s 5s 3;
+        margin-left: 1rem; /* Adjusted indent */
+        animation: typing-css-5 2s 4s steps(24, end) forwards, cursor 0.7s 4s 3;
+      }
+    }
+  }
+
+  /* --- Typing Animation Logic (Code-HTML) --- */
+  &.code-html {
+    .code-content code {
+      .html-line-1 {
+        animation: typing-html-1 2s 0.5s steps(36, end) forwards, cursor 0.7s 0.5s 3; /* Start 0.5s after CSS */
+      }
+      .html-line-2 {
+        margin-left: 1rem; /* Indent */
+        animation: typing-html-2 1s 2.5s steps(16, end) forwards, cursor 0.7s 2.5s 2;
+      }
+      .html-line-3 {
+        animation: typing-html-3 0.7s 3.5s steps(9, end) forwards, cursor 0.7s 3.5s 1;
+      }
+    }
+  }
+
+  /* --- Typing Animation Logic (Code-JS) --- */
+  &.code-js {
+    .code-content code {
+      .js-line-1 {
+        animation: typing-js-1 2.5s 1s steps(44, end) forwards, cursor 0.7s 1s 4; /* Start 1s after CSS */
+      }
+      .js-line-2 {
+        animation: typing-js-2 0.3s 3.5s steps(10, end) forwards, cursor 0.7s 3.5s 1;
+      }
+      .js-line-3 {
+        animation: typing-js-3 1.5s 4s steps(29, end) forwards, cursor 0.7s 4s 2;
+      }
+      .js-line-4 {
+        margin-left: 1rem; /* Indent */
+        animation: typing-js-4 1s 5.5s steps(14, end) forwards, cursor 0.7s 5.5s 2;
+      }
+      .js-line-5 {
+        animation: typing-js-5 0.3s 6.5s steps(10, end) forwards, cursor 0.7s 6.5s 1;
       }
     }
   }
 }
 
-/* --- Keyframes (Modified) --- */
-@keyframes typing-1 {
-  from { width: 0 }
-  to { 
-    width: 15ch;
-  } 
-}
-@keyframes typing-2 {
-  from { width: 0 }
-  to { 
-    width: 10ch; 
-    /* Hide the border/cursor upon completion */
-    border-right-color: transparent; 
-  }
-}
-@keyframes typing-3 {
-  from { width: 0 }
-  to { 
-    width: 10ch; 
-    /* Hide the border/cursor upon completion */
-    border-right-color: transparent; 
-  }
-}
-@keyframes typing-4 {
-  from { width: 0 }
-  to { 
-    width: 6ch; 
-    /* Hide the border/cursor upon completion */
-    border-right-color: transparent; 
-  }
-}
-@keyframes typing-5 {
-  from { width: 0 }
-  to { width: 24ch;
-  border-right-color: transparent; }
-}
+/* --- Keyframes (CSS) --- */
+@keyframes typing-css-1 { from { width: 0 } to { width: 15ch; } }
+@keyframes typing-css-2 { from { width: 0 } to { width: 10ch; border-right-color: transparent; } }
+@keyframes typing-css-3 { from { width: 0 } to { width: 10ch; border-right-color: transparent; } }
+@keyframes typing-css-4 { from { width: 0 } to { width: 6ch; border-right-color: transparent; } }
+@keyframes typing-css-5 { from { width: 0 } to { width: 24ch; border-right-color: transparent; } }
 
+/* --- Keyframes (HTML) --- */
+@keyframes typing-html-1 { from { width: 0 } to { width: 36ch; border-right-color: transparent; } }
+@keyframes typing-html-2 { from { width: 0 } to { width: 16ch; border-right-color: transparent; } }
+@keyframes typing-html-3 { from { width: 0 } to { width: 9ch; border-right-color: transparent; } }
+
+/* --- Keyframes (JS) --- */
+@keyframes typing-js-1 { from { width: 0 } to { width: 34ch; border-right-color: transparent; } }
+@keyframes typing-js-2 { from { width: 0 } to { width: 14ch; border-right-color: transparent; } }
+@keyframes typing-js-3 { from { width: 0 } to { width: 29ch; border-right-color: transparent; } }
+@keyframes typing-js-4 { from { width: 0 } to { width: 14ch; border-right-color: transparent; } }
+@keyframes typing-js-5 { from { width: 0 } to { width: 1ch; border-right-color: transparent; } }
+
+
+/* Cursor Animation - Kept original */
 @keyframes cursor {
   from, to, 20%, 80% { border-color: transparent }
   25%, 75% { border-color: white }
 }
-@keyframes cursor-persist {
-  from, 45% { border-color: transparent }
-  50%, to { border-color: white }
+
+/* --- Added Keyframe for Spinning --- */
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.gear-icon {
+  animation: spin 4s linear infinite;
+  transform-origin: center; /* Ensure it spins around its center */
 }
 /* END: Custom CSS for Code Editor Illustration --- */
+

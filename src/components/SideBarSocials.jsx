@@ -10,19 +10,18 @@ const SocialLinks = [
         IconComponent: FaLinkedinIn 
     },
     { 
-        name: 'Facebook', 
-        url: 'https://www.facebook.com/profile.php?id=100070561390068', 
-        IconComponent: FaFacebookF 
-    },
-    { 
         name: 'GitHub', 
         url: 'https://github.com/palimdrome', 
         IconComponent: FaGithub 
     },
+    { 
+        name: 'Facebook', 
+        url: 'https://www.facebook.com/profile.php?id=100070561390068', 
+        IconComponent: FaFacebookF 
+    },
 ];
 
 const SideBarSocials = ({ isVisible }) => {
-    // ... animation logic (useState, useEffect) remains the same ...
     const [initialRender, setInitialRender] = useState(true);
 
     useEffect(() => {
@@ -51,10 +50,8 @@ const SideBarSocials = ({ isVisible }) => {
                        ${currentClasses} 
                      `}
         >
-            {/* --- FIX 1: Reduced space-y-4 to space-y-2 for a tighter gap --- */}
             <ul className="flex flex-col items-center m-0 p-0 list-none space-y-0">
                 {SocialLinks.map((link) => (
-                    // Removed the border class
                     <li key={link.name} className="">
                         <a
                             href={link.url}
@@ -74,7 +71,6 @@ const SideBarSocials = ({ isVisible }) => {
                 ))}
             </ul>
 
-            {/* --- FIX 2: Reduced mt-4 to mt-3 to match the tighter spacing --- */}
             <div 
                 className="w-px h-24 mt-3 bg-base-content transition-colors duration-300"
                 style={{ backgroundColor: 'var(--color-base-content)' }}

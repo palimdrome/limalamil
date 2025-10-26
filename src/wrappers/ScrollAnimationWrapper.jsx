@@ -32,7 +32,7 @@ function ScrollAnimationWrapper({ children }) {
                 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}
             `}
         >
-            {/* This renders the component you wrapped (e.g., <About />) */}
+            {/* This renders the component that was wrapped (e.g., <About />) */}
             {children}
         </div>
     );
