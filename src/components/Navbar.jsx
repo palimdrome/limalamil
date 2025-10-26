@@ -1,9 +1,24 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import Button from "./Button";
  
-function Navbar() {
+function Navbar( {isLoading} ) {
     const [show, setShow] = useState(true);
     const [lastScrollY, setLastScrollY] = useState(0);
+
+    const [isNavbarVisible, setIsNavbarVisible] = useState(false);
+    const FADE_IN_DELAY_MS = 200; // Same delay as Homepage
+
+    // Effect for initial load animation
+    useEffect(() => {
+        let timer;
+        // --- FIX 3: Trigger animation *after* isLoading becomes false ---
+        if (!isLoading) {
+            timer = setTimeout(() => {
+                setIsNavbarVisible(true);
+            }, FADE_IN_DELAY_MS);
+        }
+        return () => clearTimeout(timer);
+    }, [isLoading]); // Depends on the loading state from App
     
     const controlNavbar = () => {
         if (typeof window !== 'undefined') {
@@ -30,10 +45,35 @@ function Navbar() {
         }
     }, [lastScrollY]);
 
+    // Define the base hidden/visible states
+    const hiddenState = 'opacity-0 -translate-y-full'; // Start hidden AND moved up
+    const visibleState = 'opacity-100 translate-y-0';  // Final visible state
+
+    // Determine the classes based on BOTH initial load AND scroll state
+    let combinedClasses = '';
+    if (!isNavbarVisible) {
+        // If initial load animation hasn't finished, force the hidden state
+        combinedClasses = hiddenState;
+    } else {
+        // If initial load IS finished, use scroll state to determine visibility
+        combinedClasses = show ? visibleState : hiddenState;
+    }
+
+    // Determine opacity based on initial load
+    const opacityClass = isNavbarVisible ? 'opacity-100' : 'opacity-0';
+
     return (
         <div className={`drawer drawer-end`}>
             <input id="my-drawer" type="checkbox" className="drawer-toggle" />
-            <div className={`drawer-content w-full flex flex-row justify-center backdrop-filter backdrop-blur-3xl fixed z-[98] transition-transform duration-300 transform ${show ? 'translate-y-0' : '-translate-y-full'}`}>
+            <div className={`
+                
+                drawer-content w-full flex flex-row justify-center backdrop-filter backdrop-blur-3xl fixed z-[98]
+
+                /* --- Apply transition and combined classes --- */
+                transition-all duration-500 ease-out 
+                ${combinedClasses}
+                
+                `}>
                 {/* Page content here */}
                 <div className={`navbar w-5/6 py-4`}>
                      <div className="mx-2 flex-1 px-2">

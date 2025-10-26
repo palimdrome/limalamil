@@ -59,7 +59,7 @@ function App() {
     <div className='max-w-screen min-h-screen text-[var(--color-primary-content)] bg-[var(--color-base-300)] font-jetbrains'>
       
       <LoadingScreen isLoading={isLoading} />
-      <Navbar></Navbar>
+      <Navbar isLoading={isLoading}></Navbar>
       <Homepage isLoading={isLoading}></Homepage>
       
       {shouldRender && (
