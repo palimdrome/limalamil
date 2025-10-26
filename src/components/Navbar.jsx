@@ -1,9 +1,24 @@
-import React from 'react';
-import { useState, useEffect } from 'react';
-
-function Navbar() {
+import React, { useState, useEffect } from 'react';
+import Button from "./Button";
+ 
+function Navbar( {isLoading} ) {
     const [show, setShow] = useState(true);
     const [lastScrollY, setLastScrollY] = useState(0);
+
+    const [isNavbarVisible, setIsNavbarVisible] = useState(false);
+    const FADE_IN_DELAY_MS = 200; // Same delay as Homepage
+
+    // Effect for initial load animation
+    useEffect(() => {
+        let timer;
+        // --- FIX 3: Trigger animation *after* isLoading becomes false ---
+        if (!isLoading) {
+            timer = setTimeout(() => {
+                setIsNavbarVisible(true);
+            }, FADE_IN_DELAY_MS);
+        }
+        return () => clearTimeout(timer);
+    }, [isLoading]); // Depends on the loading state from App
     
     const controlNavbar = () => {
         if (typeof window !== 'undefined') {
@@ -23,50 +38,122 @@ function Navbar() {
     useEffect(() => {
         if (typeof window !== 'undefined') {
         window.addEventListener('scroll', controlNavbar);
-    
-        // cleanup function
+        
         return () => {
             window.removeEventListener('scroll', controlNavbar);
         };
         }
     }, [lastScrollY]);
 
-    return (
-        <div class={`navbar flex flex-row align-center backdrop-filter backdrop-blur-3xl fixed z-[99] py-2 lg:py-4 md:py-4 px-4 lg:px-8 md:px-4 transition-transform duration-300 transform ${show ? 'translate-y-0' : '-translate-y-full'}`}>
-            <div className="navbar-start">
-                <div className="dropdown">
-                <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
-                </div>
-                <ul tabIndex={0} className="menu menu-sm dropdown-content mt-6 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
-                    <li><a href="#about"><span class="text-lg"><span class="text-primary font-firacode">01.</span> About</span></a></li>
-                    <li><a href="#projects"><span class="text-lg"><span class="text-primary font-firacode">02.</span> Projects</span></a></li>
-                    <li><a href="#contact"><span class="text-lg"><span class="text-primary font-firacode">03.</span> Contact</span></a></li>
-                </ul>
-                </div>
-                <a href="#home" className="btn btn-ghost text-xl lg:text-2xl md:text-2xl">
-                    <span>lim
-                    <span class="text-primary">.</span>
-                    ala
-                    <span class="text-primary">.</span>
-                    mil</span>
-                </a>
-            </div>
+    // Define the base hidden/visible states
+    const hiddenState = 'opacity-0 -translate-y-full'; // Start hidden AND moved up
+    const visibleState = 'opacity-100 translate-y-0';  // Final visible state
 
-            <div className="navbar-center hidden lg:flex">
-                <ul className="menu menu-horizontal px-1">
-                    <li><a href="#about" class="text-base"><span><span class="text-primary font-firacode">01.</span> About</span></a></li>
-                    <li><a href="#projects" class="text-base"><span><span class="text-primary font-firacode">02.</span> Projects</span></a></li>
-                    <li><a href="#contact" class="text-base"><span><span class="text-primary font-firacode">03.</span> Contact</span></a></li>
-                </ul>
+    // Determine the classes based on BOTH initial load AND scroll state
+    let combinedClasses = '';
+    if (!isNavbarVisible) {
+        // If initial load animation hasn't finished, force the hidden state
+        combinedClasses = hiddenState;
+    } else {
+        // If initial load IS finished, use scroll state to determine visibility
+        combinedClasses = show ? visibleState : hiddenState;
+    }
+
+    // Determine opacity based on initial load
+    const opacityClass = isNavbarVisible ? 'opacity-100' : 'opacity-0';
+
+    return (
+        <div className={`drawer drawer-end`}>
+            <input id="my-drawer" type="checkbox" className="drawer-toggle" />
+            <div className={`
+                
+                drawer-content w-full flex flex-row justify-center backdrop-filter backdrop-blur-3xl fixed z-[98]
+
+                /* --- Apply transition and combined classes --- */
+                transition-all duration-500 ease-out 
+                ${combinedClasses}
+                
+                `}>
+                {/* Page content here */}
+                <div className={`navbar w-5/6 py-4`}>
+                     <div className="mx-2 flex-1 px-2">
+                         <a href="#home" className="text-base lg:text-lg md:text-lg">
+                             <span>lim
+                             <span class="text-primary">.</span>
+                             ala
+                             <span class="text-primary">.</span>
+                             mil</span>
+                         </a>
+                     </div>
+                     <div className="flex-none lg:hidden">
+                         <label htmlFor="my-drawer" aria-label="open sidebar" className="btn btn-square btn-ghost">
+                         <svg
+                             xmlns="http://www.w3.org/2000/svg"
+                             fill="none"
+                             viewBox="0 0 24 24"
+                             className="inline-block h-6 w-6 stroke-current"
+                         >
+                             <path
+                             strokeLinecap="round"
+                             strokeLinejoin="round"
+                             strokeWidth="2"
+                             d="M4 6h16M4 12h16M4 18h16"
+                             ></path>
+                         </svg>
+                         </label>
+                     </div>
+                     <div className="hidden flex-none lg:block">
+                         <ul className="menu menu-horizontal">
+                             <li><a href="#about"><span class="text-sm"><span class="text-primary text-xs">01.</span> About</span></a></li>
+                             <li><a href="#experience"><span class="text-sm"><span class="text-primary text-xs">02.</span> Experience</span></a></li>
+                             <li><a href="#projects"><span class="text-sm"><span class="text-primary text-xs">03.</span> Projects</span></a></li>
+                             <li><a href="#contact"><span class="text-sm"><span class="text-primary text-xs">04.</span> Contact</span></a></li>
+                         </ul>
+                     </div>
+                 </div>
             </div>
-            <div className="navbar-end">
-            <a href="https://drive.google.com/file/d/10xFFplxquS1-AoszcMVFbyL9Xwr6zMSA/view?usp=sharing" target="_blank">
-                <button class="flex flex-row justify-center items-center gap-x-2 font-bold px-3 lg:px-5 md:px-5 py-2 text-sm lg:text-base md:text-base text-center text-base-100 bg-gradient-to-r from-secondary to-primary rounded-md border-2 lg:border-2 md:border-2 border-base-100 hover:border-primary hover:text-primary hover:from-transparent hover:to-transparent duration-500">
-                    <i class="fa fa-download"></i>
-                    Resume
-                </button>
-            </a>
+            <div className="drawer-side z-[99]">
+                <label htmlFor="my-drawer" aria-label="close sidebar" className="drawer-overlay"></label>
+                <ul className="menu flex flex-col justify-center items-center gap-y-5 bg-base-200 min-h-full w-80 p-4">
+                    {/* Sidebar content here */}
+                    <li className="mb-8">
+                        <a href="#home" className="text-base lg:text-lg md:text-lg">
+                             <span>lim
+                             <span class="text-primary">.</span>
+                             ala
+                             <span class="text-primary">.</span>
+                             mil</span>
+                         </a>
+                    </li>
+                    <li>
+                        <a href="#about" className="flex flex-col justify-center items-center">
+                            <span class="text-primary text-xs">01.</span>
+                            <span class="text-base">About</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#experience" className="flex flex-col justify-center items-center">
+                            <span class="text-primary text-xs">02.</span>
+                            <span class="text-base">Experience</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#projects" className="flex flex-col justify-center items-center">
+                            <span class="text-primary text-xs">03.</span>
+                            <span class="text-base">Projects</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#contact" className="flex flex-col justify-center items-center">
+                            <span class="text-primary text-xs">04.</span>
+                            <span class="text-base">Contact</span>
+                        </a>
+                    </li>
+
+                    <li className="mt-8">
+                        <Button url="https://drive.google.com/file/d/10xFFplxquS1-AoszcMVFbyL9Xwr6zMSA/view?usp=sharing" target="_blank" action="Download my CV"></Button>
+                    </li>
+                </ul>
             </div>
         </div>
     );

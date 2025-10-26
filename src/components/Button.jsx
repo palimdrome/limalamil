@@ -1,8 +1,24 @@
-import React from 'react';
-
 function Button(props) {
-    return (  
-        <a href={`${props.url}`}><button class="btn flex flex-col justify-center font-bold text-sm lg:text-lg md:text-base text-center text-base-100 bg-gradient-to-r from-secondary to-primary border-2 lg:border-4 md:border-3 border-base-100 hover:border-primary hover:text-primary hover:from-transparent hover:to-transparent duration-500 lg:px-7 md:px-6 lg:py-7 md:py-6">{props.action}</button></a>
+    const accentBorderColor = `border-2 border-[var(--color-accent)] rounded-lg cursor-pointer overflow-hidden transition-all duration-300 ease-in-out`;
+
+    const accentLiquidFillColor = `[background:linear-gradient(var(--color-accent))_no-repeat_calc(200%_-_var(--p,0%))_100%/200%_var(--p,0.2em)]`;
+
+    const primaryBorderColor = `border-2 border-[var(--color-primary)] rounded-lg cursor-pointer overflow-hidden transition-all duration-300 ease-in-out`;
+
+    const primaryLiquidFillColor = `[background:linear-gradient(var(--color-primary))_no-repeat_calc(200%_-_var(--p,0%))_100%/200%_var(--p,0.2em)]`;
+
+    const accentTextColor = `text-accent`;
+    const primaryTextColor = `text-primary`;
+
+    const borderColor = props.isAccent ? accentBorderColor : primaryBorderColor;
+    const liquidFillColor = props.isAccent ? accentLiquidFillColor : primaryLiquidFillColor;
+    const textColor = props.isAccent ? accentTextColor : primaryTextColor;
+
+    return (  
+        <a className="w-full" href={`${props.url}`} target={props.target}>
+            <button className={`liquid w-full relative px-8 py-4 text-base font-semibold ${textColor} ${borderColor} ${liquidFillColor} [transition:0.3s_var(--t,0s),background-position_0.3s_calc(0.3s_-_var(--t,0s))]`}
+            >{props.action}</button>
+        </a>
     );
 }
 
