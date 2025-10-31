@@ -16,7 +16,7 @@ const SocialLinks = [
     },
     { 
         name: 'Facebook', 
-        url: 'https://www.facebook.com/profile.php?id=100070561390068', 
+        url: 'https://www.facebook.com/limalamil', 
         IconComponent: FaFacebookF 
     },
 ];
